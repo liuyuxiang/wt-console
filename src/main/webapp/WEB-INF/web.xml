@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>HEA-VERSION</display-name>
+	<context-param>
+		<param-name>appId</param-name>
+		<param-value>ndapp</param-value>
+	</context-param>
+	<context-param>
+		<param-name>appName</param-name>
+		<param-value>XXX应用框架</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>log4jExposeWebAppRoot</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	
+	<!-- 适应weblogic多个应用程序 
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>hea.root</param-value>
+	</context-param>-->
+
+	<!-- Spring ApplicationContext配置文件的lujing,此参数用于后面的Spring-Context loader -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		    classpath:com/hirisun/uum2/context/applicationContext.xml,
+			classpath:com/hirisun/uum/web/context/applicationContext-web.xml,
+			classpath:com/hirisun/hea/common/config/applicationContext.xml,
+			classpath:com/hirisun/hea/common/config/applicationContext-web.xml
+		</param-value>
+	</context-param>
+	
+	<!-- 加载全局常量 -->
+	<filter>
+		<filter-name>exceptionFilter</filter-name>
+		<filter-class>com.hirisun.uum2.web.exception.filter.ExceptionFilter</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>SysGlobarInitContext</filter-name>
+		<filter-class>com.hirisun.hea.common.filter.SysGlobarInitContext</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>SysGlobarInitContext</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- Character Encoding filter -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*.hea</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>shiroFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>targetBeanName</param-name>
+			<param-value>shiroFilterFactory</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>ipFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>targetBeanName</param-name>
+			<param-value>ipFilter</param-value>
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>monitoring</filter-name>
+		<filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
+		<init-param>
+			<param-name>quartz-default-listener-disabled</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+
+
+	<!--Hibernate Open Session in View Filter -->
+	<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>MainUUMApplication</filter-name>
+		<filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+		<init-param>
+			<param-name>applicationFactoryClassName</param-name>
+			<param-value>
+                org.apache.wicket.spring.SpringWebApplicationFactory
+            </param-value>
+		</init-param>
+		<init-param>
+			<param-name>applicationBean</param-name>
+			<param-value>mainUUMApplication</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>exceptionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>ipFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- UUM user cookie -->
+	 <filter>
+		<filter-name>LctaFilter</filter-name>
+		<filter-class>com.hirisun.components.security.lcta.LctaFilter</filter-class>
+		<init-param>
+			<param-name>mode</param-name>
+			<!-- 
+			<param-value>SLAVE</param-value>
+			 -->
+			<param-value>MASTER</param-value>
+		</init-param>
+                <init-param>
+			<param-name>accessKey</param-name>
+			<param-value>hirisunpass</param-value>
+		</init-param>     
+		<!-- 
+		 -->
+        <init-param>
+			<param-name>masterAuthAnalyzerClass</param-name>
+			<param-value>com.hirisun.hea.rbac.usercookie.UumMasterAuthAnalyzerImpl</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>LctaFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>monitoring</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>	
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>/w/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>/rest/*</url-pattern>
+	</filter-mapping>
+ 	<filter-mapping>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>MainUUMApplication</filter-name>
+		<url-pattern>/w/*</url-pattern>
+	</filter-mapping>
+
+	<!-- log4j日志监听qi-->
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	
+	<!-- Spring 刷新Introspector防止内存泄露 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<!-- 支持session scope的Spring bean -->
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>com.hirisun.uum.web.EngineListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>net.bull.javamelody.SessionListener</listener-class>
+	</listener>
+	
+	
+	<!-- struts mvc servlet -->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>
+				/com/hirisun/hea/common/config/struts-config.xml,
+				/com/hirisun/hea/rbac/config/struts-config.xml,
+				/com/hirisun/hea/webbuilder/config/struts-config.xml,
+				/com/hirisun/hea/appmanage/config/struts-config.xml,
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/module_user</param-name>
+			<param-value>
+				/com/hirisun/hea/common/config/struts-config-user.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>nsf</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:com/hirisun/uum/web/context/applicationContext-web-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>nsf</servlet-name>
+		<url-pattern>*.nsf</url-pattern>
+	</servlet-mapping>	
+	<servlet>
+		<servlet-name>restService</servlet-name>
+		<servlet-class>org.apache.wink.server.internal.servlet.RestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>restService</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>com.hirisun.hea.common.filter.SessionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- struts1.x open url pattern -->
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.hea</url-pattern>
+	</servlet-mapping>
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+	
+	<welcome-file-list>
+		<welcome-file>heaconsole/web/login/adminlogin.jsp</welcome-file>
+	</welcome-file-list>
+
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+			<taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+		</taglib>
+
+		<taglib>
+			<taglib-uri>http://java.sun.com/jsp/jstl/fmt</taglib-uri>
+			<taglib-location>/WEB-INF/tld/fmt.tld</taglib-location>
+		</taglib>
+
+		<taglib>
+			<taglib-uri>http://java.sun.com/jsp/jstl/sql</taglib-uri>
+			<taglib-location>/WEB-INF/tld/sql.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+	
+	 <error-page>
+	 	<error-code>404</error-code>
+	 	<location>/404.jsp</location>
+	 </error-page>
+	  <error-page>
+	 	<error-code>500</error-code>
+	 	<location>/500.jsp</location>
+	 </error-page>
+	 <error-page>
+		<error-code>503</error-code>
+		<location>/503.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>400</error-code>
+		<location>/400.jsp</location>
+	</error-page>
+</web-app>

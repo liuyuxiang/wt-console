@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="ResourceTempDetails"
+		table="U2_ResourceTempDetails" lazy="true">
+
+		<id column="uuid" length="32" name="uuid" type="string">
+			<generator class="uuid" />
+		</id>
+
+		<property name="key" column="key" type="string" length="50"
+			not-null="true">
+		</property>
+
+		<property name="name" column="name" type="string" length="50">
+		</property>
+
+		<property name="eventuuid" column="eventuuid" type="string" length="50"
+			not-null="true">
+		</property>
+
+		<property name="originalValue" column="originalValue" type="string"
+			length="255">
+		</property>
+
+		<property name="value" column="value" type="string" length="255">
+		</property>
+
+		<property name="status" type="boolean">
+			<column name="status" not-null="true" default="0" >
+				<comment>处理状态位</comment>
+			</column>
+		</property>
+
+		<property name="type" column="type" type="integer">
+		</property>
+
+	</class>
+</hibernate-mapping>

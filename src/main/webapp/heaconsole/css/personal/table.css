@@ -1,0 +1,64 @@
+/*
+	此样式表为表格样式
+*/
+body{font-size:13px;}
+.titlestyle {
+	color: #333333;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	background-image: url(../../images/personal/bg-daohang.gif);
+	line-height: 26px;
+	background-repeat: no-repeat;
+	background-position: left;
+	height: 26px;
+	width: 90%;
+	text-indent: 15px;
+	float: left;
+}
+.tabletitle {
+	font-size: 12px;
+	line-height: 25px;
+	color: #333333;
+	text-decoration: none;
+	background-color: #DCEDF5;
+	font-weight: bold;
+}
+.tablestyle {
+	background-color: #C6DFDF;
+	width: 90%;
+}
+.col-on {
+	font-size: 12px;
+	line-height: 25px;
+	color: #333333;
+	text-indent:5px;
+	text-decoration: none;
+	background-color: #FFFFFF;
+}
+.col-hover {
+	font-size: 12px;
+	line-height: 25px;
+	color: #333333;
+	text-indent:5px;
+	text-decoration: none;
+	background-image: url(../../images/personal/onmouse.jpg);
+	background-repeat: repeat-x;
+}
+.col-out {
+	font-size: 12px;
+	line-height: 25px;
+	color: #333333;	
+	text-indent:5px;
+	text-decoration: none;
+	background-color: #EDF7FE;
+}
+.healink{
+		text-decoration: none;
+		font-size:14px;
+		margin-right:10px;
+		color:black;
+	}
+.btn1_mouseover {
+BORDER-RIGHT: #7EBF4F 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #7EBF4F 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#70D2D6); BORDER-LEFT: #7EBF4F 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #7EBF4F 1px solid
+}

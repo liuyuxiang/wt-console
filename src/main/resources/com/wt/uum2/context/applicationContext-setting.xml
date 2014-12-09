@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="baseSetting" class="com.wt.uum2.bean.Setting" >
+		<property name="maxRecordPerPage" value="999"></property>
+		<property name="revisabilityUserType" value=""></property>
+		<property name="userPasswordMaxLength" value="16"></property>
+		<property name="userPasswordMinLength" value="6"></property>
+		<property name="userPasswordIsBeginEN" value="false"></property>
+		<property name="userPasswordIsMustHaveEN" value="false"></property>
+		<property name="userPasswordIsMustHaveNUM" value="false"></property>
+		<property name="autoCompleMailSuffix" value=""></property>
+		<property name="visibleLeaveofficeButton" value=""></property>
+		<property name="copyRight" value="版权所有：深圳海联讯科技股份有限公司 《 严禁拷贝！ 》"></property>
+		<property name="normalMenuList">
+			<list>
+				<value>user</value>
+				<value>org</value>
+			</list>
+		</property>
+		<property name="adminMenuList">
+			<list>
+				<value>task</value>
+				<value>system</value>
+			</list>
+		</property>
+		<property name="syncOnOff" value="off"></property>
+		<property name="syncOnOffService" ref="syncOnOffService" ></property>
+	</bean>
+</beans>

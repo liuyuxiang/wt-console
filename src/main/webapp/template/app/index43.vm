@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>3列左右侧固定，中间列自适应居中+头部</title>
+<link href="${pageContext.request.contextPath}/common/css/layout/layout43.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="container">
+  <div id="header">This is the Header</div>
+  <div id="mainContent">
+    <div id="sidebar">This is the sidebar</div>
+    <div id="sidebar2">This is the sidebar2</div>
+    <div id="content">3列左右侧固定，中间列自适应居中+头部</div>
+  </div>
+</div>
+</body>
+</html>

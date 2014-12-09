@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="Attribute"
+		table="U2_Attribute" lazy="true">
+
+		<id column="uuid" length="32" name="uuid" type="string">
+			<generator class="uuid" />
+		</id>
+
+		<many-to-one column="ownerResourceUUID" name="ownerResource"
+			class="Resource" not-null="true" />
+
+		<many-to-one column="typeUUID" name="type" class="AttributeType"
+			not-null="true" />
+
+		<set name="attValues" inverse="true" cascade="all-delete-orphan">
+			<key column="attributeUuid" />
+			<one-to-many class="AttributeValue" />
+		</set>
+
+		<property column="typeUUID" length="32" name="typeUUID"
+			not-null="true" type="string" insert="false" update="false" />
+
+		<property column="ownerResourceUUID" length="32"
+			name="ownerResourceUUID" not-null="true" type="string" insert="false"
+			update="false" />
+
+		<property name="value">
+			<column name="value" length="500" not-null="false">
+				<comment>扩展属性值</comment>
+			</column>
+		</property>
+
+	</class>
+
+</hibernate-mapping>

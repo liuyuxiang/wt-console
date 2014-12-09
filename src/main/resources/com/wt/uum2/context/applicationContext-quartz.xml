@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd"
+	default-lazy-init="true">
+
+	<bean name="baseQuartzScheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean"
+		abstract="true">
+		<property name="overwriteExistingJobs" value="true" />
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="configLocation"
+			value="classpath:/com/wt/uum/quartz/quartz-${server.type}.properties" />
+		<!-- java melody used -->
+		<property name="exposeSchedulerInRepository" value="true" />
+			<property name="triggers">
+			<list >
+			</list>
+		</property>
+	</bean>
+
+	<bean id="eventTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<!-- see the example of method invoking job above -->
+		<property name="jobDetail" ref="eventJobDetail" />
+		<!-- 5 seconds -->
+		<property name="startDelay" value="5000" />
+		<!-- repeat every 5 seconds -->
+		<property name="repeatInterval" value="5000" />
+		<property name="volatility" value="true" />
+		<property name="misfireInstruction">
+			<util:constant static-field="org.quartz.SimpleTrigger.MISFIRE_INSTRUCTION_RESCHEDULE_NEXT_WITH_REMAINING_COUNT" />
+		</property>
+	</bean>
+
+	<bean name="eventJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="com.wt.uum.quartz.EventJobDetailQuartzJobBean" />
+		<property name="volatility" value="true" />
+		<property name="durability" value="true" />
+	</bean>
+
+
+</beans>

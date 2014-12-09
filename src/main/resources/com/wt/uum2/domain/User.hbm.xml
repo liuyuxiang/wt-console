@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+	<subclass dynamic-insert="true" dynamic-update="true" name="User"
+		extends="Resource" lazy="true" discriminator-value="0">
+		<set name="departments" table="U2_UserDepartments">
+			<key column="userUUID" />
+			<many-to-many column="departmentUUID" class="Department" />
+		</set>
+		<set name="groups" table="U2_UserGroups" inverse="true">
+			<key column="userUUID" />
+			<many-to-many column="groupUUID" class="Group" />
+		</set>
+		<bag name="userAuthors" inverse="true" cascade="delete" order-by="userlevels">
+			<key column="userUUID" />
+			<one-to-many class="UserAuthor" />
+		</bag>
+
+		<join table="U2_User">
+			<key column="uuid" />
+			<many-to-one column="primaryDepartmentUUID" name="primaryDepartment"
+				not-null="true" class="Department" />
+			<many-to-one column="primaryUserUUID" name="primaryUser"
+				not-null="false" class="User" />
+			<property column="orderNum" name="order" not-null="true"
+				type="long" />
+			<property column="currentAuthorLevel" name="currentAuthorLevel"
+				not-null="false" type="long" />
+			<property column="id" length="500" name="id" unique="true"
+				not-null="true" type="string" />
+			<property column="name" length="500" name="name" not-null="false"
+				type="string" />
+			<property column="lastUpdateTime" name="lastUpdateTime"
+				type="timestamp" />
+			<property column="password" length="500" name="password"
+				not-null="false" type="string" />
+			<property column="primaryDepartmentUUID" length="32"
+				name="primaryDepartmentUUID" not-null="true" type="string" insert="false"
+				update="false" />
+			<property column="primaryUserUUID" length="32"
+				name="primaryUserUUID" type="string" insert="false"
+				update="false" />
+
+		</join>
+	</subclass>
+</hibernate-mapping>

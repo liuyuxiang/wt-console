@@ -1,0 +1,10 @@
+
+body { font-family:Verdana; font-size:14px; margin:0;}
+
+#container {margin:0 auto; width:900px;}
+#header { height:100px; background:#6cf; margin-bottom:5px;}
+#menu { height:30px; background:#09c; margin-bottom:5px;}
+#mainContent { height:500px; margin-bottom:5px;}
+#sidebar { float:left; width:200px; height:500px; background:#9ff;}
+#content { float:right; width:695px; height:500px; background:#cff;}/*因为是固定宽度，采用左右浮动方法可有效避免ie 3像素bug*/
+#footer { height:60px; background:#6cf;}

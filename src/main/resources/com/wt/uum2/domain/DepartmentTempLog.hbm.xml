@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+	<class dynamic-insert="true" dynamic-update="true" name="DepartmentTempLog"
+		table="U2_DepartmentTempLog" lazy="true">
+		<id column="uuid" length="32" name="uuid" type="string">
+			<generator class="uuid" />
+		</id>
+		<property name="deptId" type="string">
+			<column name="DEPTID" not-null="false" length="32">
+				<comment>部门ID</comment>
+			</column>
+		</property>
+		<property name="deptCode" type="string">
+			<column name="DEPTCODE" not-null="false">
+				<comment>部门编码</comment>
+			</column>
+		</property>
+		<property name="deptName" type="string">
+			<column name="DEPTNAME" default="'新建部门'" not-null="true">
+				<comment>部门名称</comment>
+			</column>
+		</property>
+		<property name="deptOrder" type="long">
+			<column name="DEPTORDER" not-null="false">
+				<comment>部门排序号</comment>
+			</column>
+		</property>
+		<property name="deptOrgCode" type="string">
+			<column name="DEPTORGCODE" not-null="false">
+				<comment>部门公司编码</comment>
+			</column>
+		</property>
+		<property name="parentDeptCode" type="string">
+			<column name="PARENTDEPTCODE" not-null="false">
+				<comment>上级部门编码</comment>
+			</column>
+		</property>
+		<property name="isvirtual" column="ISVIRTUAL" type="string"></property>
+		<property name="modifyType" column="MODIFYTYPE" type="string" />
+		<property name="lastUpdateTime" column="LASTUPDATETIME" type="timestamp"></property>
+		<property name="beginDate" column="BEGINDATE" type="timestamp"></property>
+		<property name="endDate" column="ENDDATE" type="timestamp"></property>
+		<property name="recordState" column="RECORDSTATE" type="string"></property>
+		<property name="dummy" column="DUMMY" type="string" />
+		<property name="modifyStatus" type="long">
+			<column name="MODIFYSTATUS" not-null="true" default="0">
+				<comment>变更状态:0未处理;1异常;2成功;3忽略</comment>
+			</column>
+		</property>
+		<property name="remark">
+			<column name="remark">
+				<comment>描述</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

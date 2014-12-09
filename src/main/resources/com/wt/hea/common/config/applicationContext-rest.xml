@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<import resource="classpath:/META-INF/server/wink-core-context.xml" />
+
+	<bean class="org.apache.wink.spring.Registrar">
+		<property name="classes">
+			<set value-type="java.lang.Class">
+			</set>
+		</property>
+		<property name="instances">
+			<set>
+				<ref bean="userRest" />
+				<ref bean="deptRest" />
+				<ref bean="groupRest" />
+				<ref bean="appRest" />
+				<ref bean="deviceRest" />
+				<ref bean="resourceRest" />
+				<ref bean="dutyRest" />
+			</set>
+		</property>
+	</bean>
+
+	<bean id="resourceRest" class="com.wt.hea.rest.NavigationResource"></bean>
+	
+	<bean id="userRest" class="com.wt.uum2.rest.UserResource"
+		parent="resRest">
+	</bean>
+	<bean id="deptRest" class="com.wt.uum2.rest.DepartmentResource"
+		parent="resRest">
+	</bean>
+	<bean id="dutyRest" class="com.wt.uum2.rest.DutyResource"
+		parent="resRest">
+	</bean>
+	<bean id="groupRest" class="com.wt.uum2.rest.GroupResource"
+		parent="resRest">
+	</bean>
+	<bean id="appRest" class="com.wt.uum2.rest.ApplicationResource"
+		parent="resRest">
+	</bean>
+	<bean id="resRest" class="com.wt.uum2.rest.ResResource"
+		abstract="true">
+		<property name="uumService" ref="uumService"/>
+		<property name="departmentPathService" ref="departmentPathService" />
+		<property name="uumAppService" ref="uumAppService" />
+		<property name="dutyService" ref="dutyService" />
+		<property name="eventListenerHandler" ref="eventListenerHandler"/>
+		<property name="eventFactory" ref="eventFactory"/>
+		<property name="authService" ref="AuthService"/>
+	</bean>
+	<bean id="deviceRest" class="com.wt.uum2.rest.DeviceResource">
+		<property name="userResource" ref="userRest"></property>
+		<property name="deviceService" ref="deviceService"></property>
+	</bean>
+</beans>

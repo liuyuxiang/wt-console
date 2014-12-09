@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="SyncLog"
+		table="U2_SyncLog" lazy="true">
+
+		<id column="uuid" length="32" name="uuid" type="string">
+			<generator class="uuid" />
+		</id>
+
+		<property name="eventuuid" type="string">
+			<column name="eventuuid" length="32" not-null="true">
+				<comment>event uuid</comment>
+			</column>
+		</property>
+
+		<property name="appId" type="string">
+			<column name="appId" length="500" not-null="true">
+				<comment>synchronous application id</comment>
+			</column>
+		</property>
+
+		<property name="handleTime" type="timestamp">
+			<column name="handleTime" not-null="true">
+				<comment>handle time</comment>
+			</column>
+		</property>
+
+		<property name="status" type="int">
+			<column name="status" default="1" not-null="true" length="1">
+				<comment>处理状态,1为正常,2为警告,0为异常</comment>
+			</column>
+		</property>
+
+		<one-to-one name="syncErrorLog" cascade="all" class="SyncErrorLog"
+			outer-join="auto">
+		</one-to-one>
+
+	</class>
+
+	<class dynamic-insert="true" dynamic-update="true" name="SyncErrorLog"
+		table="U2_SyncErrorLog" lazy="true">
+
+		<id column="uuid" name="uuid">
+			<generator class="foreign">
+				<param name="property">syncLog</param>
+			</generator>
+		</id>
+
+		<property name="errorMessage"
+			type="org.springframework.orm.hibernate3.support.ClobStringType">
+			<column name="errorMessage" not-null="true">
+				<comment>error message</comment>
+			</column>
+		</property>
+
+		<one-to-one name="syncLog" constrained="true" class="SyncLog"></one-to-one>
+
+	</class>
+
+</hibernate-mapping>

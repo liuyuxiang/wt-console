@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="PlaceHolder" table="P_TMPL_ATTR">
+        <id name="tmplAttrId" type="string" column="tmpl_Attr_Id" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="tmplId" type="string"  column="tmpl_Id" length="32"/>
+        <property name="placeHolderId" type="string" column="placeHolder_Id" length="32"/>
+        <property name="placeHolderName" type="string" column="placeHolder_Name"/>
+        <property name="placeHolderType" type="string" column="placeHolder_Type"/>
+        <property name="contentCode" type="string" column="content_Code"/>
+        <property name="portletId" type="string" column="PORTLET_ID"/>
+        <property name="portletName" type="string" column="PORTLET_NAME"/>
+        <property name="funcAction" type="string" column="FUNC_ACTION"/>
+        <property name="editAction" type="string" column="EDIT_ACTION"/>
+        <property name="titleUrl" type="string" column="TITLE_URL"/>
+        
+    </class>
+</hibernate-mapping>

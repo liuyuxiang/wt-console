@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<alias name="dataSource1" alias="dataSource" />
+	<alias name="nativeJdbcExtractorCommonsDbcp" alias="nativeJdbcExtractor" />
+	<alias name="lobHandlerOracle" alias="lobHandler" />
+	<alias name="uumSessionFactoryOracle10g" alias="uumSessionFactory" />
+	<bean id="dftSetting" parent="baseSetting">
+		<property name="syncOnOff" value="off"></property>
+		<property name="adminMenuList">
+			<list>
+				<value>app</value>
+				<value>task</value>
+				<value>system</value>
+			</list>
+		</property>
+	</bean>
+	<alias name="dftSetting" alias="setting" />
+
+	<bean id="userListService" parent="baseUserListService">
+		<property name="cols">
+			<list>
+				<value>num</value>
+				<value>userID</value>
+				<value>userName</value> 
+				<value>orderNum</value>				
+			</list>
+		</property>
+	</bean>
+	
+</beans>

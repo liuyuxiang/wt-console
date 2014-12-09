@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="UserPage" table="P_USER_PAGE">
+        <id name="pageId" type="string" column="PAGE_ID" length="32">
+		        <generator class="uuid">
+		      </generator>
+        </id>
+        <property name="pageNo" type="string" column="PAGE_NO" length="32"/>
+        <property name="pageTitle" type="string"  column="PAGE_TITLE" length="256"/>
+        <property name="dispSn" type="integer" column="disp_sn" length="5" />
+        <property name="layoutCode" type="string" column="LAYOUT_CODE" length="16" />
+        <property name="themeCode" type="string" column="THEME_CODE" length="16" />
+        <property name="userId" type="string" column="USER_ID" length="256" />
+        <property name="userNo" type="string" column="user_No" length="256" />
+        <property name="userName" type="string" column="USER_NAME" length="256" />
+        <property name="ifDefault" type="integer" column="IF_DEFAULT" length="5" />
+		
+		<bag name="userPersonalInfo" order-by="sort_No,disp_Sn" lazy="false">
+			<key column="PAGE_ID" />
+			<one-to-many class="UserPersonalInfo" />
+		</bag>
+		
+    </class>
+</hibernate-mapping>
+

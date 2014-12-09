@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 	
+ 	<bean id="heaRbacBaseService" class="com.wt.hea.rbac.service.impl.BaseService">
+		<property name="indexDao" ref="heaIndexDao"/>
+		<property name="indexPersonalizationDao" ref="heaIndexPersonalizationDao"/>
+	</bean>
+	<bean id="heaIndexService" class="com.wt.hea.rbac.service.impl.IndexServiceImpl" parent="heaRbacBaseService">
+		<property name="rbacService" ref="heaRbacService"/>
+	</bean>
+	<bean id="heaIndexPersonalizationService" class="com.wt.hea.rbac.service.impl.IndexPersonalizationServiceImpl" parent="heaRbacBaseService">
+	</bean>
+	<bean id="navigationResource" class="com.wt.hea.rest.NavigationResource">
+	</bean>
+	<bean id="heaRbacService" class="com.wt.hea.rbac.service.impl.RBACServiceResImpl">
+	</bean>
+	
+</beans>

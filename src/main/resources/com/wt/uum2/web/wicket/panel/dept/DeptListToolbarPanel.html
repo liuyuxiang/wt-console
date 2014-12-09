@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<wicket:panel>
+		<table width=100% borde=1 >
+			<tr>
+				<td colspan="2" align="left">当前部门:&nbsp;<label
+					wicket:id="currentDeptPath"></label>
+				</td>
+			</tr>
+			<wicket:enclosure child="deldept">
+			<tr>
+				<td colspan="2" align="left" style="background-color: #DAE9F9; font-size: 12px;"><!-- <input type="button"
+					wicket:id="deldept" class="button" value="删除当前机构" /> --><span wicket:id="deldept"></span> <input
+					type="button" wicket:id="adddept" class="button" value="增加下级机构" />
+					<input type="button" wicket:id="updatedept" class="button"
+					value="修改属性" /></td>
+			</tr>
+			</wicket:enclosure>
+		</table>
+	</wicket:panel>
+</body>
+</html>

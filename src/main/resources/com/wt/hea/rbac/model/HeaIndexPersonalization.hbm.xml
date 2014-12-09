@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.rbac.model">
+	<class name="IndexPersonalization" table="LFS_INDEX_PERSONALIZATION">
+		<id name="personalizationuuid" type="string" column="PERSONALIZATIONUUID" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="userId" type="string" column="USERID" length="100" />
+		<property name="nodeId" type="string" column="NODEID" length="100"/>
+		<property name="viewNodeId" type="string" column="VIEWNODEID" length="200" />
+		<property name="orderNum" type="java.lang.Integer" column="ORDERNUM" length="11" />
+		<property name="showT" type="java.lang.Integer" column="SHOW_T" length="11" />
+	</class>
+</hibernate-mapping>

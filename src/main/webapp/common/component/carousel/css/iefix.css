@@ -1,0 +1,52 @@
+#header h1 {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='../images/logotype.png', sizingMethod='crop');
+	}
+/* www.codefans.net */
+#TB_window img {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='../images/windowBg.png', sizingMethod='crop');
+	}
+
+
+#TB_closeWindowButton {
+	cursor:pointer !important;
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='../images/close.png', sizingMethod='crop');
+	}
+.projectList .left, .projectList .right {
+	background:none;
+	}
+
+#TB_next a  {
+	cursor:pointer !important;
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='../images/slideshowNext.png', sizingMethod='crop');
+	}
+
+#TB_prev a  {
+	cursor:pointer !important;
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='../images/slideshowPrev.png', sizingMethod='crop');
+	}
+
+#people ul.tabs-nav li a:hover span{
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, src='../images/peopleSpan.png', sizingMethod='crop');
+	}
+
+#news ul.tabs-nav li a {
+	top:-1px;
+	}
+#projects .nav a.next {
+	right:10px;
+	margin-right:10px;
+	}
+
+#projects .nav a.prev {
+	right:60px;
+	}
+
+#people {
+	margin-bottom:18px;
+	}

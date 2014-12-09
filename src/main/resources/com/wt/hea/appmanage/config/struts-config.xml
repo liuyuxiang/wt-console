@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <data-sources />
+  <form-beans >
+    <form-bean name="heaAppManageForm" type="com.wt.hea.appmanage.struts.form.AppManageForm" />
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards >
+  	
+  </global-forwards>
+  <action-mappings >
+	<action path="/heaAppManageAction" name="heaAppManageForm" parameter="action" scope="request">
+		<forward name="applist" path="/heaconsole/web/appmanage/applist.jsp"/>
+		<forward name="applistaction" path="/heaAppManageAction.hea?action=appList"></forward>
+		<forward name="addapp1" path="/heaconsole/web/appmanage/addapp1.jsp"/>
+		<forward name="addapp2" path="/heaAppManageAction.hea?action=addApp2"/>
+		<forward name="addapp2page" path="/heaconsole/web/appmanage/addapp2.jsp"/>
+		<forward name="addapp3" path="/heaconsole/web/appmanage/addapp3.jsp"/>
+		<forward name="updateapp" path="/heaconsole/web/appmanage/updateapp.jsp"/>
+   </action> 
+   
+   <action path="/heaAppResourceAction" name="heaAppManageForm" parameter="action">
+   		<forward name="addlogo" path="/heaconsole/web/appmanage/addlogo.jsp"/>
+   		<forward name="addtheme" path="/heaconsole/web/appmanage/addtheme.jsp"/>
+		<forward name="themelist" path="/heaconsole/web/appmanage/themelist.jsp"/>
+		<forward name="05" path="/heaconsole/web/appmanage/logolist.jsp"/>
+		<forward name="07" path="/heaconsole/web/appmanage/bannerlist.jsp"/>
+   </action>
+     
+  </action-mappings>
+  
+	<controller maxFileSize="20M">
+		<set-property property="processorClass"
+			value="org.springframework.web.struts.DelegatingRequestProcessor" />
+	</controller>
+    <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation"
+			value="classpath:com/wt/hea/common/config/applicationContext-action-servlet.xml" />
+	</plug-in>
+</struts-config>
+

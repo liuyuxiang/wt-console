@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+<wicket:head>
+	<style>
+input.error {
+	border: 1px solid red;
+}
+</style>
+</wicket:head>
+</head>
+<body>
+	<wicket:extend>
+		<div class="backg">
+			<form wicket:id="form">
+				<div class="logindiv">
+					<span class="fontStyle1"><i>应用系统登录 </i> </span> <span
+						class="fontStyle1" style="font-family: 'Arial';"><i>Application
+							System Login</i> </span> <img src="images/u10.png" />
+					<table class="loginTable">
+						<tr>
+							<td><span class="fontStyle1"><wicket:message
+										key="username">用户名</wicket:message> </span>
+							</td>
+							<td><input wicket:id="username" type="text" class="ipt" />
+							</td>
+						</tr>
+						<tr>
+							<td><span class="fontStyle1"><wicket:message
+										key="password">密码</wicket:message> </span>
+							</td>
+							<td><input wicket:id="password" type="password" class="ipt" />
+							</td>
+						</tr>
+						<tr>
+							<td><span class="fontStyle1">登录系统</span>
+							</td>
+							<td><span class="fontStyle1"><span
+									wicket:id="sysNameLoginTitle"></span> </span>
+							</td>
+						</tr>
+					</table>
+					<img src="images/u10.png" /> <br /><br /><br />
+					<div class="btn">
+						<input name="submit" id="submit" type="submit" wicket:message="value:login"
+							class="btnfont" />
+					</div>
+					<div class="btn">
+						<input wicket:id="close" type="button" class="btnfont" wicket:message="value:close"/>
+					</div><br />
+					<div class="fontStyle2">
+						说明：为满足门户系统和各业务系统的单点登录功能要求，请您输入此业务应用系统的登录名和密码，系统将会自动做同步操作。
+					</div>
+					<div wicket:id="usernameFeedback"></div>
+					<div wicket:id="passwordFeedback"></div>
+					<div wicket:id="feedback"></div>
+				</div>
+			</form>
+		</div>
+	</wicket:extend>
+</body>
+</html>

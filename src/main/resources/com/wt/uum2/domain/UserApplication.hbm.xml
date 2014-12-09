@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="UserApplication"
+		table="U2_UserApplication" lazy="true">
+
+		<composite-id>
+			<key-many-to-one column="useruuid" name="user" class="User"/>
+			<key-many-to-one column="applicationuuid" name="application" class="Application" />
+		</composite-id>
+
+		<property name="uuid" type="string" length="32" insert="true" update="true" >
+			<column name="uuid" default="'sys_guid()'">
+				<comment>status</comment>
+			</column>
+		</property>
+
+		<property column="type" name="type" length="2" not-null="true"
+			type="string" />
+
+		<property column="mappendUserid" name="mappendUserid" length="50"
+			type="string" />
+
+		<property column="mappendPassword" name="mappendPassword"
+			length="1000" type="string" />
+
+		<property column="useruuid" name="useruuid" length="32"
+			not-null="true" type="string" insert="false" update="false"/>
+
+		<property column="applicationuuid" name="applicationuuid"
+			length="32" not-null="true" type="string" insert="false" update="false"/>
+
+		<property column="loginable" name="loginable" length="1"
+			not-null="false" type="boolean" />
+
+		<property column="remark" name="remark" length="1000"
+			not-null="false" type="string" />
+
+		<property column="lastmodifytime" name="lastmodifytime"
+			not-null="true" type="timestamp" />
+
+	</class>
+
+</hibernate-mapping>

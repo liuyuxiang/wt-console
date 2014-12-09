@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="ResourceSync"
+		table="U2_Resource_Sync" lazy="true">
+
+			<id column="uuid" length="32" name="uuid" type="string">
+			   <generator class="uuid" />
+		    </id>
+            
+            <property column="type" name="type" not-null="true" type="integer" />
+           
+			<property column="propType" name="propType" length="30"	not-null="false" type="string" />
+			
+			<property column="propName" name="propName" length="30"	not-null="true" type="string" />
+			
+			<property column="transFunc" name="transFunc" length="30" not-null="false" type="string" />
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="UserDepartment"
+		table="U2_UserDepartments" lazy="true" abstract="true">
+
+		<composite-id>
+			<key-many-to-one column="userUUID" name="user" class="User" />
+			<key-many-to-one column="departmentUUID" name="department"
+				class="Department" />
+		</composite-id>
+
+		<property column="userUUID" name="userUUID" not-null="true"
+			type="string" insert="false" update="false" />
+		<property column="departmentUUID" name="departmentUUID" not-null="true"
+			type="string" insert="false" update="false" />
+
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class name="Role" table="U2_Role" dynamic-update="true"
+		dynamic-insert="true" lazy="true">
+
+		<id name="uuid" column="uuid" type="string" length="32">
+			<generator class="uuid" />
+		</id>
+
+		<property name="name" type="string" unique-key="ukey_roleName">
+			<column name="name" length="100" />
+		</property>
+
+		<property name="ownerUUID" column="ownerUUID" not-null="true"
+			type="string" length="32" insert="false" update="false" unique-key="ukey_roleName" />
+
+		<many-to-one name="owner" class="Department" column="ownerUUID" />
+
+	</class>
+</hibernate-mapping>

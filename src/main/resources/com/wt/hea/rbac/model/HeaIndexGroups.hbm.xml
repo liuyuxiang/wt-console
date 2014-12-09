@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.rbac.model">
+	<class name="IndexGroups" table="LFS_IG">
+	<composite-id>
+		<key-property name="indexuuid" type="string" length="32">
+			<column name="INDEXUUID"></column>
+		</key-property>
+		<key-property name="groupuuid" type="string" length="32">
+			<column name="GROUPUUID"></column>
+		</key-property>
+	</composite-id>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+	<subclass dynamic-insert="true" dynamic-update="true" name="Department"
+		extends="Resource" lazy="true" discriminator-value="2">
+
+		<bag name="departmentAuthors" inverse="true" order-by="departmentlevels"
+			cascade="delete" lazy="true">
+			<key column="departmentUUID" />
+			<one-to-many class="DepartmentAuthor" />
+		</bag>
+		<join table="U2_Department">
+			<key column="uuid" />
+			<property column="parentUUID" length="32" name="parentUUID"
+				insert="false" update="false" type="string" />
+			<many-to-one column="parentUUID" name="parent" class="Department" />
+			<property column="orderNum" name="order" not-null="true"
+				type="long" />
+			<property column="name" length="255" name="name" not-null="true"
+				type="string" />
+			<property column="code" length="50" name="code" type="string" />
+			<property column="hasChildren" name="hasChildren" not-null="true"
+				type="boolean" />
+			<property column="path" length="4000" name="path" not-null="true"
+				type="string" />
+			<property column="deptCode" length="50" name="deptCode"
+				type="string" />
+			<property column="orgCode" length="50" name="orgCode" type="string" />
+			<property column="deptParentCode" length="50" name="deptParentCode"
+				type="string" />
+			<property column="lastUpdateTime" name="lastUpdateTime"
+				type="timestamp" />
+			<property column="currentAuthorLevel" name="currentAuthorLevel"
+				not-null="false" type="long" />
+			<property name="rtxCode" type="long">
+				<column name="rtxCode" default="0" not-null="true">
+					<comment>RTX编码,必须有值,而且唯一</comment>
+				</column>
+			</property>
+
+			<property name="level">
+				<column name="level_" default="0" not-null="true">
+					<comment>department path</comment>
+				</column>
+			</property>
+		</join>
+	</subclass>
+</hibernate-mapping>

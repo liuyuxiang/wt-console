@@ -1,0 +1,73 @@
+.titlestyle {
+	color: #333333;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	background-image: url(../../images/page/bg-daohang.gif);
+	line-height: 26px;
+	background-repeat: no-repeat;
+	background-position: left;
+	height: 26px;
+	width: 90%;
+	text-indent: 15px;
+	float: left;
+}
+.tabletitle {
+	font-size: 12px;
+	line-height: 25px;
+	color: #333333;
+	text-decoration: none;
+	background-color: #DCEDF5;
+	font-weight: bold;
+}
+.tablestyle {
+	background-color: #C6DFDF;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+}
+.col-on {
+	font-size: 12px;
+	line-height: 25px;
+	color: #333333;
+	text-indent:5px;
+	text-decoration: none;
+	background-color: #FFFFFF;
+}
+.col-hover {
+	font-size: 12px;
+	line-height: 25px;
+	color: #333333;
+	text-indent:5px;
+	text-decoration: none;
+
+	background-repeat: repeat-x;
+}
+.col-out {
+	font-size: 12px;
+	line-height: 25px;
+	color: #333333;	
+	text-indent:5px;
+	text-decoration: none;
+	background-color: #f0f5fb;
+}
+img { border: none; margin: 0px; padding: 0px;}
+.submitb {
+	text-decoration: none;
+	display: block;
+	font-size: 12px;
+	font-weight: normal;
+	color: #333333;
+	background-image: url(../../images/page/button068.gif);
+	background-repeat: no-repeat;
+	text-align: center;
+	background-position: center;
+	padding: 4px;
+}
+.submitb:hover {
+	background-image: url(../../images/page/button068fu.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	color: #000000;
+}

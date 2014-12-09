@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.hea.appmanage.model">
+    <class name="AppManage" table="HEA_APPS" >
+        <id name="appId" type="java.lang.String">
+            <column name="APP_ID" length="32" />
+            <generator class="uuid.hex" />
+        </id>
+        <property name="appAddr" type="java.lang.String" column="APP_ADDR" />
+        <property name="appCataLog" type="java.lang.String" column="APP_CATALOG" />
+        <property name="appDesc" type="java.lang.String" column="APP_DESC" />
+        <property name="appName" type="java.lang.String" column="APP_NAME" />
+        <property name="appNo" type="java.lang.String" column="APP_NO" />
+        <property name="appStatus" type="java.lang.String" column="APP_STATUS" />
+         
+        <property name="appType" type="java.lang.String" column="APP_TYPE" />
+        <property name="dbInfo" type="java.lang.String" column="DB_INFO" />
+        <property name="dbPassword" type="java.lang.String" column="DB_PASSWORD" />
+        <property name="dbUser" type="java.lang.String" column="DB_USER" />
+        <property name="runStatus" type="java.lang.String" column="RUN_STATUS" />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<subclass dynamic-insert="true" dynamic-update="true" name="Application"
+		extends="Resource" lazy="true" discriminator-value="3">
+		<set name="authenticationProfile" inverse="true"
+			table="U2_AuthenticationProfile" cascade="all">
+			<key column="applicationUuid" />
+			<one-to-many class="AuthenticationProfile" />
+		</set>
+		<join table="U2_Application">
+
+			<key column="uuid" />
+
+			<property column="code" length="500" name="code" not-null="true"
+				type="string" />
+
+			<property column="name" length="500" name="name" not-null="false"
+				type="string" />
+
+			<property column="remark" length="500" name="remark"
+				not-null="false" type="string" />
+
+			<property column="orderNum" name="order" type="long" />
+
+		</join>
+
+	</subclass>
+</hibernate-mapping>

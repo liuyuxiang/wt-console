@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+	<class name="AuthenticationProfile" table="U2_AuthenticationProfile"
+		dynamic-update="true" dynamic-insert="true" lazy="true"
+		optimistic-lock="version">
+
+		<id name="uuid" column="uuid" type="string" length="32">
+			<generator class="uuid" />
+		</id>
+
+		<property name="profileName" column="profileName" not-null="true"
+			unique-key="ukey_profileName" type="string" length="100" />
+
+		<property name="profileDescription" column="profileDescription"
+			type="string" length="255" />
+
+		<property name="formName" column="formName" type="string"
+			length="10" />
+
+		<property name="preAccessUrlServerSide" column="preAccessUrlServerSide"
+			type="string" length="500" />
+
+		<property name="actionUrlServerSide" column="actionUrlServerSide"
+			not-null="true" type="string" length="500" />
+
+		<property name="errorKeyword" column="errorKeyword" not-null="false"
+			type="string" length="500" />
+
+		<property name="preAccessUrl" column="preAccessUrl" type="string"
+			length="500" />
+
+		<property name="actionUrl" column="actionUrl" not-null="false"
+			type="string" length="500" />
+
+		<property name="target" column="target" type="string" length="10" />
+
+		<property name="submitMethod" column="submitMethod" not-null="false"
+			type="string" length="10" />
+
+		<property name="inputNameUserid" column="inputNameUserid"
+			not-null="true" type="string" length="50" />
+
+		<property name="inputNamePassword" column="inputNamePassword"
+			not-null="true" type="string" length="50" />
+
+		<property name="charset" column="charset" type="string"
+			length="10" />
+
+		<property name="applicationUUID" column="applicationUuid"
+			insert="false" update="false" not-null="true" type="string" length="32" />
+
+		<many-to-one name="application" class="Application" fetch="join"
+			update="true" cascade="all" column="applicationUuid" unique-key="ukey_profileName" />
+
+	</class>
+</hibernate-mapping>

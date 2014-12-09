@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+</head>
+<body>
+<wicket:extend>
+	<form method="post" wicket:id="form">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			id="ldap">
+			<tr>
+				<td align="right">Ldap仓库</td>
+				<td><input wicket:id="ldapFactory" style="width:70%"></input><span wicket:id="ldapFactoryFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">连接名</td>
+				<td><input wicket:id="ldapUserName" style="width:70%"></input><span wicket:id="ldapUserNameFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">链接密码</td>
+				<td><input wicket:id="ldapUserPassWord" style="width:70%"></input><span wicket:id="ldapUserPassWordFeedback"></span></td>
+			</tr>
+			<tr>
+				<td align="right">链接地址</td>
+				<td><input wicket:id="ldapUrl" style="width:70%"></input><span wicket:id="ldapUrlFeedback"></span></td>
+			</tr>
+			
+			<tr >
+				<td align="right">主DN</td>
+				<td><input wicket:id="baseDN" style="width:70%"></input><span wicket:id="baseDNFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">人员DN</td>
+				<td><input wicket:id="userDN" style="width:70%"></input><span wicket:id="userDNFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">组DN</td>
+				<td><input wicket:id="groupDN" style="width:70%"></input><span wicket:id="groupDNFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">部门DN</td>
+				<td><input wicket:id="deptDN" style="width:70%"></input><span wicket:id="deptDNFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">人员Key</td>
+				<td><input wicket:id="userKey" style="width:70%"></input><span wicket:id="userKeyFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">组Key</td>
+				<td><input wicket:id="groupKey" style="width:70%"></input><span wicket:id="groupKeyFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">部门Key</td>
+				<td><input wicket:id="deptKey" style="width:70%"></input><span wicket:id="deptKeyFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">人员Class</td>
+				<td><input wicket:id="userObjectClass" style="width:70%"></input><span wicket:id="userObjectClassFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">部门Class</td>
+				<td><input wicket:id="deptObjectClass" style="width:70%"></input><span wicket:id="deptObjectClassFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">组Class</td>
+				<td><input wicket:id="groupObjectClass" style="width:70%"></input><span wicket:id="groupObjectClassFeedback"></span></td>
+			</tr>
+			
+			<tr>
+				<td align="right">部门根</td>
+				<td><input wicket:id="dbDeptRoot" style="width:70%"></input></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><span wicket:id="feedback"></span></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input wicket:id="submit" type="submit" value="提交"/>&nbsp;
+					<input wicket:id="reset" type="button" value="重置"/>&nbsp;
+					<input wicket:id="goback" type="button" value="返回"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</wicket:extend>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd"
+	default-lazy-init="true">
+
+	<bean id="syncOnOffService" class="com.wt.uum.service.BaseSyncOnOffService">
+		<property name="syncOnOffCache" ref="syncOnOffCache"></property>
+	</bean>
+	
+	<bean id="cacheManager1"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation"
+			value="classpath:/com/wt/uum/ehcache/ehcache.xml" />
+	</bean>
+
+	<bean id="rmiCacheReplicatorFactory" class="net.sf.ehcache.distribution.RMICacheReplicatorFactory">
+	</bean>
+
+	<bean id="cacheEventListener" factory-bean="rmiCacheReplicatorFactory"
+		factory-method="createCacheEventListener">
+		<constructor-arg>
+			<util:properties>
+				<prop key="replicateAsynchronously">true</prop>
+				<prop key="replicatePuts">true</prop>
+				<prop key="replicateUpdates">true</prop>
+				<prop key="replicateUpdatesViaCopy">true</prop>
+				<prop key="replicateRemovals">true</prop>
+			</util:properties>
+		</constructor-arg>
+	</bean>
+
+	<bean id="rmiBootstrapCacheLoaderFactory"
+		class="net.sf.ehcache.distribution.RMIBootstrapCacheLoaderFactory"></bean>
+
+	<bean id="bootstrapCacheLoader" factory-bean="rmiBootstrapCacheLoaderFactory"
+		factory-method="createBootstrapCacheLoader">
+		<constructor-arg>
+			<null />
+		</constructor-arg>
+	</bean>
+
+	<bean id="baseClusterCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean"
+		abstract="true">
+		<property name="overflowToDisk" value="false" />
+		<property name="diskPersistent" value="false" />
+
+		<property name="cacheEventListeners">
+			<set>
+				<ref bean="cacheEventListener" />
+			</set>
+		</property>
+		<property name="bootstrapCacheLoader" ref="bootstrapCacheLoader" />
+	</bean>
+
+
+	<bean id="syncOnOffCache" parent="baseClusterCache" >
+		<property name="cacheName" value="syncOnOffCache" />
+		<property name="cacheManager">
+			<ref local="cacheManager1" />
+		</property>
+
+		<property name="maxElementsInMemory" value="1" />
+		<property name="eternal" value="true" />
+		<property name="memoryStoreEvictionPolicy">
+			<util:constant static-field="net.sf.ehcache.store.MemoryStoreEvictionPolicy.LFU" />
+		</property>
+	</bean>
+
+</beans>

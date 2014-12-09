@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="TemplateLayout" table="P_TMPL" >
+        <id name="tmplId" type="string" column="tmpl_Id" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="tmplName" type="string"  column="tmpl_name" length="100"/>
+        <property name="tmplAddr" type="string" column="tmpl_addr" length="4000"/>
+        <property name="tmplStatus" type="string" column="tmpl_status" length="10"/>
+        <property name="tmplCode" type="string" column="tmpl_Code" length="8" />
+        <property name="tmplPicAddr" type="string" column="tmpl_pic_addr"/>
+        <property name="dispSn" type="integer" column="disp_Sn" length="19" />
+        <property name="createDate" type="java.util.Date" column="create_time" />
+        <property name="modifyDate" type="java.util.Date" column="update_time" />
+        <property name="tmplStyleAddr" type="string" column="tmpl_style_addr"/>
+        <property name="appId" type="string" column="APP_ID"/>
+        
+        <bag name="placeHolderList" lazy="false">
+        	<key column="tmpl_Id" />
+        	<one-to-many class="PlaceHolder" />
+        </bag>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="Event"
+		table="U2_Event" lazy="true">
+
+		<id column="uuid" length="32" name="uuid" type="string">
+			<generator class="uuid" />
+		</id>
+
+		<property column="type" name="type" length="30" not-null="true"
+			type="string" />
+
+		<property column="updatedate" name="date" not-null="true"
+			type="timestamp" />
+
+		<property column="resourceuuid" name="resourceuuid" length="32"
+			not-null="true" type="string" />
+
+		<property column="resourceid" name="resourceId" length="100"
+			type="string" />
+
+		<property column="resourcename" name="resourceName" length="100"
+			type="string" />
+
+		<property name="resourceType" type="string">
+			<column name="resourceType" length="10">
+				<comment>资源类型</comment>
+			</column>
+		</property>
+
+		<property column="operator" name="operator" length="32" type="string" />
+
+		<property column="operatorName" name="operatorName" length="100"
+			type="string" />
+
+		<property column="operatorDept" name="operatorDept" length="200"
+			type="string" />
+
+		<property column="operUUID" name="operUUID" length="32" type="string" />
+
+		<property name="operatorIpAdderss" type="string">
+			<column name="operatorIpAdderss">
+				<comment>操作者IP地址</comment>
+			</column>
+		</property>
+
+		<property name="status" type="int">
+			<column name="status" default="0" not-null="true" length="1">
+				<comment>处理状态,0为待处理,1为异常,2为正常结束,3为处理中,4为警告</comment>
+			</column>
+		</property>
+
+		<property name="sequence" type="long">
+			<column name="seq">
+			</column>
+		</property>
+
+		<many-to-one column="dependEventUUID" name="dependEvent"
+			class="Event" />
+
+		<set name="params" inverse="true" lazy="true" cascade="all,delete-orphan">
+			<key column="eventuuid"></key>
+			<one-to-many class="EventParam" />
+		</set>
+
+	</class>
+</hibernate-mapping>

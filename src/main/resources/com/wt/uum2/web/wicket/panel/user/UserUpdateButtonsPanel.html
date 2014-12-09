@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<wicket:panel>
+		<input type="button" name="resetPage" id="resetPage" wicket:id="resetPage"value="重置" class="button"/>&nbsp;
+			<input type="button" name="resetPassword" id="resetPassword" wicket:id="resetPassword"value="重置密码" class="button"/>&nbsp;
+			<input type="button" name="openResourceLog" id="openResourceLog" wicket:id="openResourceLog" value="查看记录" class="button"/>&nbsp;
+			<input type="button" name="closeResourceLog" id="closeResourceLog" wicket:id="closeResourceLog"value="关闭记录" class="button"/>
+		<br />
+		<table cellspacing="1" border="0" align="center" width="100%">
+		<tbody><tr><td>
+			<iframe wicket:id="logs"  border="0" style=" border-width: 0px;height:0px;width:100%" data-app="uum"></iframe>
+		
+		</td></tr></tbody>
+	</table>
+	</wicket:panel>
+  </body>
+</html>

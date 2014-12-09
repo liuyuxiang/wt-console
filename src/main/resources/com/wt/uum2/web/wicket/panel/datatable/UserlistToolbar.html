@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<wicket:panel>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td wicket:id="visiblecurrentdeptpanel"></td>
+			</tr>
+			<tr>
+				<td colspan="8" width="94%" align="left" valign="top">
+					<table width="100%"
+						style="background-color: #DAE9F9; font-size: 12px;">
+						<tr>
+							<td><span wicket:id="exportModal"></span><span wicket:id="comfirmModal"></span>
+								<div wicket:id="visibleviewsubdept" style="display:inline;"></div>
+								<div wicket:id="visiblebackuserlist" style="display:inline">
+									<label wicket:id="caption"></label>&nbsp;&nbsp;<input
+										type="button" wicket:id="backdept" class="button"
+										value="返回用户列表">
+								</div>
+								<div wicket:id="visibleselecteduser" style="display:inline;position:relative;left:2%;">
+									已选中<label wicket:id="selectedUserMsg"></label>个用户&nbsp;<input
+										wicket:id="clearselectedUser" type="button" value="清空"
+										class="button"></input>
+								</div>
+								<div wicket:id="search" style="display:inline;float:center;position:relative;left:2%;"></div>
+								<div wicket:id="visiblehandleuser" style="display:inline;float:right;">
+								<input type="button" class="button" wicket:id="export" value="导出" >&nbsp;&nbsp;	
+									<input type="button" class="button" wicket:id="adduser"
+										value="新增"> <input wicket:id="deletuser" type="button"
+										class="button" value="删除"> <input
+										wicket:id="leaveoffice" type="button" class="button"
+										value="离 职"> <input wicket:id="moveuser"
+										type="button" class="button" value="移除">
+								</div>
+								<div wicket:id="visibleaftersearchhandel" style="display:inline;float:right;">
+									<input wicket:id="addusertodept" type="button" class="button"
+										value="加入"> <input wicket:id="deleteuserfromdept"
+										type="button" class="button" value="删除"> <input
+										wicket:id="leftuser" type="button" class="button"
+										value="离 职"> 
+								</div>
+								<div wicket:id="visiblerecoveruser" style="display:inline;float:right;">
+									<input wicket:id="recoveruser" type="button" class="button"
+										value="恢复">
+								</div>
+							</td>
+
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+
+
+	</wicket:panel>
+</body>
+</html>

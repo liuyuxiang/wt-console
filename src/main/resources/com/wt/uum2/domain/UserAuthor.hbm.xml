@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+	<class dynamic-insert="true" dynamic-update="true" name="UserAuthor"
+		table="U2_UserAuthor" lazy="true">
+		<id column="uuid" length="32" name="uuid" type="string">
+			<generator class="uuid" />
+		</id>
+		
+		<property column="userlevels" name="levels" length="1" not-null="false"
+			type="string" />		
+		
+		<many-to-one column="userUUID" name="user"
+			not-null="true" class="User" />
+
+		<many-to-one column="groupUUID" name="group"
+			not-null="true" class="Group" />
+
+	</class>
+</hibernate-mapping>

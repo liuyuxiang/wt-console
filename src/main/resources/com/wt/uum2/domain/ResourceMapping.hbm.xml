@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="ResourceMapping"
+		table="U2_ResourceMapping" lazy="true">
+
+		<id column="uuid" length="32" name="uuid" type="string">
+			<generator class="uuid" />
+		</id>
+
+		<property column="mappingid" name="mappingid" not-null="true"
+			type="string" unique-key="U2_ResourceMapping_mappingid_resourceUUID" />
+
+		<property column="resourceuuid" name="resourceuuid" not-null="true"
+			type="string" unique-key="U2_ResourceMapping_mappingid_resourceUUID" />
+
+		<many-to-one column="resourceuuid" name="resource" class="Resource"
+			update="false" insert="false" />
+
+	</class>
+
+</hibernate-mapping>

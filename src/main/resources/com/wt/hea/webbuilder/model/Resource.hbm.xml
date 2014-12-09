@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="ResourceSite" table="P_RESOURCES">
+        <id name="resId" type="string" column="RES_ID" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="resType" type="string"  column="res_type"/>
+        <property name="resName" type="string" column="RES_NAME"/>
+        <property name="resPath" type="string" column="RES_PATH" />
+        <property name="resStatus" type="string" column="RES_STATUS" />
+        <property name="resWidth" type="integer" column="RES_WIDTH" />
+        <property name="resHeight" type="integer" column="RES_HEIGHT" />
+        <property name="fileSize" type="long" column="FILE_SIZE" />
+        <property name="siteId" type="string" column="SITE_ID"/>
+        <property name="siteName" type="string" column="SITE_NAME"/>
+        <property name="resCode" type="string" column="RES_CODE"/>
+        <property name="appId" type="string" column="APP_ID"/>
+    </class>
+</hibernate-mapping>

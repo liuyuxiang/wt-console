@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+	<class name="Permission" table="U2_Permission" dynamic-update="true" dynamic-insert="true" lazy="true">
+		<id name="uuid" column="uuid" type="string" length="32">
+			<generator class="uuid" />
+		</id>
+		<property name="key" type="string">
+			<column name="key" length="100" />
+		</property>
+
+	</class>
+</hibernate-mapping>

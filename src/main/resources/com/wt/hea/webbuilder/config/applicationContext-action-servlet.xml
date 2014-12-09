@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="heaWebbuilderBaseAction" class="com.wt.hea.webbuilder.struts.action.BaseAction" abstract="true" parent="heaBaseDispatchAction">
+	</bean>
+
+	<bean name="/heaIndexPageAction" class="com.wt.hea.webbuilder.struts.action.IndexAction" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaPortletPropertyAction" class="com.wt.hea.webbuilder.struts.action.PortletPropertyAction" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaUserPageAction" class="com.wt.hea.webbuilder.struts.action.UserPageAction" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaUserPersonalInfoAction" class="com.wt.hea.webbuilder.struts.action.UserPersonalInfoAction" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaLayoutDefinitionAction" class="com.wt.hea.webbuilder.struts.action.LayoutDefinitionAction" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaThemeDefinitionAction" class="com.wt.hea.webbuilder.struts.action.ThemeDefinitionAction" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaTemplatePageAction" class="com.wt.hea.webbuilder.struts.action.TemplatePageAction"  parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaTemplatePortletInfoAction" class="com.wt.hea.webbuilder.struts.action.TemplatePortletInfoAcion" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaPersonalSysParamAction" class="com.wt.hea.webbuilder.struts.action.PersonalSysParamAction" parent="heaWebbuilderBaseAction" />
+	<bean name="/heaTemplateLayoutAction" class="com.wt.hea.webbuilder.struts.action.TemplateLayoutAction" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaPersonalInitAction" class="com.wt.hea.webbuilder.struts.action.PersonalInitAction" parent="heaWebbuilderBaseAction"/>
+	<!-- 袁明敏 -->
+	<bean name="/heaSiteManageAction" class="com.wt.hea.webbuilder.struts.action.SiteManageAction" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaBaseInfoAction" class="com.wt.hea.webbuilder.struts.action.BaseInfoAction" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaSecondClassPageAction" class="com.wt.hea.webbuilder.struts.action.SecondClassPageAction" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaResourceAction" class="com.wt.hea.webbuilder.struts.action.ResourceAction" parent="heaWebbuilderBaseAction"/>
+	<bean name="/heaPopWindowAction" class="com.wt.hea.webbuilder.struts.action.PopWindowAction" parent="heaWebbuilderBaseAction"/>
+</beans>

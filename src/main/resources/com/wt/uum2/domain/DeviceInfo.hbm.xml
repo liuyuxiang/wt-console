@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="DeviceInfo"
+		table="U2_Device_Info" lazy="true">
+
+		<id column="uuid" length="32" name="uuid" type="string">
+			<generator class="uuid" />
+		</id>
+
+		<property name="userId" type="string">
+			<column name="user_id" not-null="true" index="idx_device_user_id" unique-key="user_device">
+				<comment>user ID</comment>
+			</column>
+		</property>
+
+		<property name="deviceId" type="string">
+			<column name="dev_id" not-null="true" index="idx_device_dev_id" unique-key="user_device">
+				<comment>device ID</comment>
+			</column>
+		</property>
+
+		<property name="authCode">
+			<column name="auth_code" not-null="true" index="idx_device_authcode">
+				<comment>authentication code</comment>
+			</column>
+		</property>
+
+		<property name="modified" type="timestamp">
+			<column name="modified" not-null="true">
+				<comment>last update time</comment>
+			</column>
+		</property>
+
+		<property name="name" type="string">
+			<column name="DEV_NAME">
+				<comment>name</comment>
+			</column>
+		</property>
+
+		<property name="version" type="string">
+			<column name="DEV_VERSION">
+				<comment>version</comment>
+			</column>
+		</property>
+
+		<property name="ip" type="string">
+			<column name="IP">
+				<comment>IP address</comment>
+			</column>
+		</property>
+
+		<property name="status">
+			<column name="DEV_status" not-null="true">
+				<comment>状态</comment>
+			</column>
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">com.wt.uum.device.DeviceStatus</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+
+		<property name="count" type="int">
+			<column name="count" not-null="true">
+				<comment>登录次数</comment>
+			</column>
+		</property>
+
+	</class>
+
+</hibernate-mapping>

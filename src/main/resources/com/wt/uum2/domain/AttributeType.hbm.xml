@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+	<class dynamic-insert="true" dynamic-update="true" name="AttributeType"
+		table="U2_AttributeType" lazy="true">
+		<id column="uuid" length="32" name="uuid" type="string">
+			<generator class="uuid" />
+		</id>
+		<property column="orderNum" name="order" 
+			not-null="true" type="long" />
+		<property column="name" length="500" name="name"
+			not-null="true" type="string" />
+		<property column="catagory" length="500" name="catagory"
+			 not-null="true" type="string" />
+		<property column="id" length="500" name="id" 
+			not-null="true" type="string" />
+		<property column="resourceType" name="resourceType" not-null="true"
+			type="integer" />
+		<property column="multivalued" name="multivalued" not-null="true"
+			type="boolean" />
+		<property column="hidden" name="hidden" not-null="true" type="boolean" />
+		<property column="pageType" name="pageType" not-null="false"
+			type="string" />
+		<set name="adminGroups" table="U2_AdminGroupAttributeType">
+			<key column="attributeTypeUUID" />
+			<many-to-many column="groupUUID" class="Group" />
+		</set>
+		<set name="groups" table="U2_AttributeTypeGroups">
+			<key column="attributeTypeUUID" />
+			<many-to-many column="groupUUID" class="Group" />
+		</set>
+		<bag name="candidateItems" inverse="true"
+			order-by="sortNumber,value" >
+			<key column="attributeTypeUuid" />
+			<one-to-many class="CandidateItem" />
+		</bag>
+		<property column="length" name="length"
+			not-null="false" type="long" />
+		<property column="rule" length="2" name="rule"
+			not-null="false" type="string" />
+		<property column="value" length="100" name="value"
+			not-null="false" type="string" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="UseridMapping"
+		table="U2_UseridMapping" lazy="true" abstract="true">
+
+		<id column="uuid" length="32" name="uuid" type="string">
+			<generator class="uuid" />
+		</id>
+
+		<many-to-one column="userUUID" name="user" not-null="true"
+			class="User" />
+
+		<many-to-one column="applicationUUID" name="application"
+			not-null="true" class="Application" />
+
+		<property column="appUserid" name="appUserid" length="500"
+			not-null="true" type="string" />
+
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+		<!-- see the example of method invoking job above -->
+		<property name="jobDetail" ref="jobDetail" />
+		<!-- 50 seconds -->
+		<property name="startDelay" value="50000" />
+		<!-- repeat every 50 seconds -->
+		<property name="repeatInterval" value="50000" />
+		<property name="volatility" value="true" />
+		<property name="misfireInstruction">
+			<util:constant static-field="org.quartz.SimpleTrigger.MISFIRE_INSTRUCTION_RESCHEDULE_NEXT_WITH_REMAINING_COUNT" />
+		</property>
+	</bean> 
+	
+	<bean name="jobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="com.wt.uum.quartz.SynJobDetailQuartzJobBean" />
+		<property name="volatility" value="true" />
+		<property name="durability" value="true" />
+	</bean>
+
+	<bean id="synJobDetail" class="com.wt.uum2.quartz.SynJobDetail">
+		<property name="uumService" ref="uumService" />
+		<property name="uumDataService" ref="uumDataService" />
+		<property name="eventListenerHandler" ref="eventListenerHandler"></property>
+		<property name="eventFactory" ref="eventFactory"></property>
+	</bean>
+
+	<bean id="defaultQuartzScheduler" parent="baseQuartzScheduler">
+		<property name="triggers">
+			<list merge="true">
+				<ref bean="simpleTrigger" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

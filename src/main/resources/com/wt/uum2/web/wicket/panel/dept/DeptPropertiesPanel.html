@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<wicket:panel>
+
+		<table cellspacing="1" cellpadding="0" width="100%" border="0">
+			<tr>
+				<td width="45%" align="right"><wicket:message key="name"></wicket:message>：</td>
+				<td align="left"><input wicket:id="name" />
+				</td>
+				<td width="50%" align="left"><font color="#FF0000">*</font><font
+					wicket:id="confirmationname" color="#FF0000">*</font>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" width="45%"><wicket:message key="orderNum">排序号</wicket:message>：</td>
+				<td align="left"><input wicket:id="orderNum" />
+				</td>
+				<td width="50%" align="left"><font color="#FF0000">*</font><font
+					wicket:id="confirmationorder" color="#FF0000"></font>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" width="45%"><span wicket:id="codeLabel">部门名称</span>：</td>
+				<td align="left"><input wicket:id="code"
+					value=""/>
+				</td>
+				<td width="50%" align="left"><font color="#FF0000">*</font><font
+					wicket:id="confirmationcode" color="#FF0000">*(请使用字母或者数字)</font></td>
+			</tr>
+			<tr>
+				<td align="right" width="45%"><span wicket:id="deptCodeLabel">部门编码</span>：</td>
+				<td align="left"><input wicket:id="deptCode"/>
+				</td>
+				<td width="50%" align="left"><font color="#FF0000">*</font><font
+					wicket:id="confirmationdeptcode" color="#FF0000">*</font>
+				</td>
+			</tr>
+			<wicket:enclosure child="deptTree">
+			<tr>
+				<td align="right"><wicket:message key="parentDeptLabel">父部门</wicket:message>：</td>
+				<td align="left" colspan="2"><span wicket:id="deptTree"></span>
+				</td>
+
+			</tr>
+			</wicket:enclosure>
+			<TR>
+				<TD align="right"><wicket:message key="adminGroups">可管理该部门的组</wicket:message>：</TD>
+				<td align=left colspan="2"><span wicket:id="adminGroups"></span>
+				</TD>
+			</TR>
+			<tr>
+				<td wicket:id="attr0" colspan=2 style="padding: 0px;"></td>
+			</tr>
+
+		</table>
+	</wicket:panel>
+</body>
+</html>

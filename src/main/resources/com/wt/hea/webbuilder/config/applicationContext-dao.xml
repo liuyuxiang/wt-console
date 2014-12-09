@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="heaPortletPropertyDao" class="com.wt.hea.webbuilder.dao.impl.PortletPropertyDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaUserPageDao" class="com.wt.hea.webbuilder.dao.impl.UserPageDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaUserPersonalInfoDao" class="com.wt.hea.webbuilder.dao.impl.UserPersonalInfoDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaLayoutDefinitionDao" class="com.wt.hea.webbuilder.dao.impl.LayoutDefinitionDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaThemeDefinitionDao" class="com.wt.hea.webbuilder.dao.impl.ThemeDefinitionDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaTemplatePageDao" class="com.wt.hea.webbuilder.dao.impl.TemplatePageDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaTemplatePortletInfoDao" class="com.wt.hea.webbuilder.dao.impl.TemplatePortletInfoDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaTemplateLayoutDao"	class="com.wt.hea.webbuilder.dao.impl.TemplateLayoutDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaPlaceHolderDao" class="com.wt.hea.webbuilder.dao.impl.PlaceHolderDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaSiteManageDao" class="com.wt.hea.webbuilder.dao.impl.SiteManageDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaPersonalSystemParameterDao" class="com.wt.hea.webbuilder.dao.impl.PersonalSystemParameterDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaPlaceHolderGroupDao" class="com.wt.hea.webbuilder.dao.impl.PlaceHolderGroupDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaResourceDao" class="com.wt.hea.webbuilder.dao.impl.ResourceDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaBaseInfoDao" class="com.wt.hea.webbuilder.dao.impl.BaseInfoDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaPopWindowDao" class="com.wt.hea.webbuilder.dao.impl.PopWindowDaoImpl" parent="heaHibernateDaoSupport"/>
+	<bean id="heaJdbcIndexDao" class="com.wt.hea.webbuilder.dao.impl.JdbcIndexDaoImpl" parent="heaJdbcDaoSupport"/>
+</beans>

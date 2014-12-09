@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<alias name="simpleDetector" alias="clientIpDetector"/>
+	<alias name="simpleResolver" alias="clientIpResolver"/>
+
+	<bean name="shiroFilterFactory" parent="shiroFilterFactoryBase" >
+			<property name="filterChainDefinitions">
+			<value>
+				/rest/** = deviceFilter,anon
+				/style/** = anon
+				/js/** = anon
+				/index.nsf = anon
+				/login.nsf = anon
+				/setup.nsf = anon
+				/install.nsf = anon
+				/heaUserAction.hea = anon
+				/w/updatePassword=anon
+				/w/login = anon
+				/w/wicket/** = anon
+				/** = lctaSSOFilter,authc
+			</value>
+		</property>
+	</bean>
+	
+</beans>

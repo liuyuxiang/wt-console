@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="UserPersonalInfo" table="P_USER_PORTLETINFO">
+        <id name="id" type="string" column="UP_ID" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="pageId" type="string" column="PAGE_ID" insert="false" update="false"/>
+        <property name="portletId" type="string" column="PORTLET_ID" length="32"  insert="false" update="false"/>
+        <property name="showName" type="string" column="SHOW_NAME" length="256"/>
+        <property name="userId" type="string" column="USER_ID" length="256"/>
+        <property name="userNo" type="string" column="USER_NO" length="256"/>
+        <property name="userName" type="string" column="USER_NAME" length="256"/>
+        <property name="funcId" type="string" column="FUNC_ID" length="16"/>
+        <property name="funcName" type="string" column="FUNC_NAME" length="256"/>
+        <property name="funcAction" type="string" column="FUNC_ACTION" length="256"/>
+        <property name="portletSatus" type="string" column="PORTLET_STATUS" length="8"/>
+        <property name="sortNo" type="integer" column="SORT_NO" length="5"/>
+        <property name="rowNo" type="integer" column="ROW_NO" length="5"/>
+        <property name="dispSn" type="integer" column="DISP_SN" length="5"/>
+        <property name="editAction" type="string" column="EDIT_ACTION" length="256"/>
+        <property name="titleUrl" type="string" column="TITLE_URL" length="256" />
+		
+		<many-to-one name="userPage" class="UserPage" column="page_Id" foreign-key="FK_USER_POR_USER_PERS_USER_PAG"/>
+		<many-to-one name="portletProperty" class="PortletProperty" column="portlet_Id" foreign-key="FK_USER_POR_PORTLET_P_PORTLET_" />
+    </class>
+</hibernate-mapping>

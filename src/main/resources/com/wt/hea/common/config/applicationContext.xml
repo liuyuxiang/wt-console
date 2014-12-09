@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<!-- spring 加载xml 属性配置 -->
+
+	
+	<!-- common -->
+	<import resource="applicationContext-hibernate.xml" />
+	<import resource="applicationContext-dataSource.xml" />
+	<import resource="applicationContext-aop.xml" />
+	<import resource="applicationContext-dao.xml" />
+	<import resource="applicationContext-service.xml" />
+	
+	<!-- rbac -->
+	<import resource="classpath:com/wt/hea/rbac/config/applicationContext-dao.xml" />
+	<import resource="classpath:com/wt/hea/rbac/config/applicationContext-service.xml" />
+	
+	<!-- webbuilder -->
+	<import resource="classpath:com/wt/hea/webbuilder/config/applicationContext-dao.xml" />
+	<import resource="classpath:com/wt/hea/webbuilder/config/applicationContext-service.xml" />
+	
+	<!-- appmanage -->
+	<import resource="classpath:com/wt/hea/appmanage/config/applicationContext-dao.xml"/>
+	<import resource="classpath:com/wt/hea/appmanage/config/applicationContext-service.xml"/>
+	
+	<context:annotation-config  />
+	
+	<context:component-scan base-package="com.wt">
+	</context:component-scan>
+	
+	
+	<!-- 支持javax.annotation注解 -->
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
+	<!-- @Component,@Service,@Repository,@Controller	 -->
+	<!--  <context:component-scan base-package="com.wt" /> -->
+	
+	<bean class="com.wt.hea.rbac.service.impl.BaseService" ></bean>
+	<bean class="com.wt.hea.rbac.service.impl.IndexServiceImpl" ></bean>
+	
+</beans>

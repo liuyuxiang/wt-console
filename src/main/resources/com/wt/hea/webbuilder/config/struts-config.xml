@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+  <data-sources />
+  <form-beans >
+  	<form-bean name="portletPropertyForm" type="com.wt.hea.webbuilder.struts.form.PortletPropertyForm" />
+  	<form-bean name="userPageForm" type="com.wt.hea.webbuilder.struts.form.UserPageForm" />
+  	<form-bean name="userPersonalInfoForm" type="com.wt.hea.webbuilder.struts.form.UserPersonalInfoForm" />
+  	<form-bean name="layoutDefinitionForm" type="com.wt.hea.webbuilder.struts.form.LayoutDefinitionForm" />
+  	<form-bean name="themeDefinitionForm" type="com.wt.hea.webbuilder.struts.form.ThemeDefinitionForm" />
+  	<form-bean name="templatePageForm" type="com.wt.hea.webbuilder.struts.form.TemplatePageForm" />
+  	<form-bean name="templatePortletInfoForm" type="com.wt.hea.webbuilder.struts.form.TemplatePortletInfoForm"/>
+  	<form-bean name="personalSystemParameterForm" type="com.wt.hea.webbuilder.struts.form.PersonalSysParamForm"/>
+  	<form-bean name="templateLayoutForm" type="com.wt.hea.webbuilder.struts.form.TemplateLayoutForm"/>
+  	<form-bean name="siteManageForm" type="com.wt.hea.webbuilder.struts.form.SiteManageForm"/>
+  	<form-bean name="baseInfoForm" type="com.wt.hea.webbuilder.struts.form.BaseInfoForm"/>
+  	<form-bean name="resourceForm" type="com.wt.hea.webbuilder.struts.form.ResourceForm"/>
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards >
+		<forward name="message" path="/heaconsole/web/message.jsp"></forward>
+  </global-forwards>
+  <action-mappings >
+  
+  <!-- 初始化action -->
+  <action path="/heaPersonalInitAction" parameter="action">
+  	<forward name="initOver" path="/view/jsp/personal/main.jsp"></forward>
+  </action>
+  
+  	<action path="/heaIndexPageAction" name="templatePageForm" parameter="action">
+  			<forward name="tree_xmlData" path="/heaconsole/web/rbac/index/tree_xmlData.jsp"/>
+	  		<forward name="sysparam" path="/heaconsole/web/webbuild/core/sysparam.jsp"/>
+	  		<forward name="viewTemplates" path="/heaconsole/web/webbuild/page/addPage.jsp"/>
+	  		<forward name="pageManager" path="/heaconsole/web/webbuild/page/pageManager.jsp"/>
+	  		<forward name="configPage" path="/heaconsole/web/webbuild/page/configPage.jsp"/>
+	  		<forward name="portletList" path="/heaconsole/web/webbuild/page/portletList.jsp"/>
+  	</action>
+  
+  	<!-- portlet属性Action -->
+	  <action path="/heaPortletPropertyAction" name="portletPropertyForm" parameter="action">
+	  		<forward name="portletList" path="/view/jsp/market/addPortlet.jsp"/>
+	  		<forward name="allPortlets" path="/heaconsole/web/webbuild/core/portletList.jsp"/>
+	  </action>
+  	<!-- 用户个性化页面属性Action -->
+	  <action path="/heaUserPageAction" name="userPageForm" parameter="action">
+	  		
+	  		
+	  </action>
+    <!-- 用户个性化portlet属性Action -->
+	  <action path="/heaUserPersonalInfoAction" name="userPersonalInfoForm" parameter="action">
+	  		
+	  </action>
+	  
+	  <!-- 布局属性Action -->
+	  <action path="/heaLayoutDefinitionAction" name="layoutDefinitionForm" parameter="action">
+	  		<forward name="themeDefinition" path="/heaThemeDefinitionAction.hea?action=findAll" />
+	  </action>
+	  
+	  <!-- 主题属性Action -->
+	  <action path="/heaThemeDefinitionAction" name="themeDefinitionForm" parameter="action">
+	  		<forward name="themeList" path="/heaconsole/web/webbuild/core/themelist.jsp"/>
+	  		<forward name="addTheme" path="/heaconsole/web/webbuild/core/addTheme.jsp"/>
+	  		<forward name="modifyTheme" path="/heaconsole/web/webbuild/core/modifyTheme.jsp"/>
+	  </action>
+	  
+	  <!-- 模板页面Action -->
+	  <action path="/heaTemplatePageAction" name="templatePageForm" parameter="action">
+	  		<forward name="viewTemplates" path="/heaconsole/web/webbuild/core/addPage.jsp"/>
+	  		<forward name="loadTemplate" path="/heaconsole/web/webbuild/core/loadtemplate.jsp"/>
+	  		<forward name="allTemplatePage" path="/heaconsole/web/webbuild/core/tmplList.jsp"/>
+	  		<forward name="modifyPage" path="/heaconsole/web/webbuild/core/modifytemplate.jsp"/>
+	  		<forward name="newPage" path="/heaconsole/web/webbuild/core/newpage.jsp"/>
+	  		<forward name="editPageFirst" path="/heaconsole/web/webbuild/core/editPageFirst.jsp"/>
+	  		
+	  </action>
+
+	  
+	  <!-- 系统全局参数Action -->
+	  <action path="/heaPersonalSysParamAction" name="personalSystemParameterForm" parameter="action">
+	  		<forward name="sysparam" path="/heaconsole/web/webbuild/core/sysparam.jsp"/>
+	  		<forward name="toOverAll" path="/heaPersonalSysParamAction.hea?action=findAllOverAll"/>
+	  </action>
+	  
+	  <!-- 模板布局Action -->
+	  <action path="/heaTemplateLayoutAction" name="templateLayoutForm" parameter="action">
+	  		<forward name="addTemplate" path="/heaconsole/web/webbuild/core/addTemplate.jsp"/>
+	  		<forward name="newTemplate" path="/heaconsole/web/webbuild/core/newTemplate.jsp"/>
+	  		<forward name="tmplList" path="/heaconsole/web/webbuild/core/tmpllist.jsp"/>
+	  		<forward name="editTemplate" path="/heaconsole/web/webbuild/core/editTemplate.jsp"/>
+	  		<forward name="placeHolderControl" path="/heaconsole/web/webbuild/core/placeHolderControl.jsp"/>
+	  </action>
+	  
+	  <action path="/heaTemplatePortletInfoAction" name="templatePortletInfoForm" parameter="action">
+	  </action>
+	  
+	   <!--  begin 袁明敏:导航,站点,资源管理-->
+	  <action path="/heaSiteManageAction" name="siteManageForm" parameter="action" scope="request">
+  		<forward name="nav_sidebar" path="/heaconsole/web/webbuild/core/nav_sidebar.jsp"/>
+  		<forward name="nav_addSite" path="/heaconsole/web/webbuild/core/nav_addSite.jsp"/>
+  		<forward name="nav_updateSite" path="/heaconsole/web/webbuild/core/nav_updateSite.jsp"/>
+  		<forward name="nav_chooseParentNavigate" path="/heaconsole/web/webbuild/core/nav_chooseParentNavigate.jsp"/>
+  		<forward name="nav_navigateSidebar" path="/heaconsole/web/webbuild/core/nav_navigateSidebar.jsp"/>
+  		<forward name="nav_updateNavigate" path="/heaconsole/web/webbuild/core/nav_updateNavigate.jsp"/>
+  		<forward name="nav_chooseParentNavigate" path="/heaconsole/web/webbuild/core/nav_chooseParentNavigate.jsp"/>
+  		<forward name="nav_bannerMenuPriview" path="/heaconsole/web/webbuild/core/nav_bannerMenuPriview.jsp"/>
+  		<forward name="nav_bannerMenuContent" path="/heaconsole/web/webbuild/core/nav_bannerMenuContent.jsp"/>
+  		<forward name="nav_TreeMenuContent" path="/heaconsole/web/webbuild/core/nav_TreeMenuContent.jsp"/>
+  		<forward name="nav_TreeMenuPriview" path="/heaconsole/web/webbuild/core/nav_TreeMenuPriview.jsp"/>
+	  </action>
+	  
+	   <action path="/heaBaseInfoAction" name="baseInfoForm" parameter="action">
+	   	<forward name="site_leftSideShadeUpload" path="/heaconsole/web/webbuild/core/site_leftSideShadeUpload.jsp"/>
+	   	<forward name="site_rightSideShadeUpload" path="/heaconsole/web/webbuild/core/site_rightSideShadeUpload.jsp"/>
+	   	<forward name="site_floatWinUpload" path="/heaconsole/web/webbuild/core/site_floatWinUpload.jsp"/>
+	   	<forward name="site_logoUpload" path="/heaconsole/web/webbuild/core/site_logoUpload.jsp"/>
+	   	<forward name="site_copyrightSetting" path="/heaconsole/web/webbuild/core/site_copyrightSetting.jsp"/>
+	   	<forward name="site_logoSetting" path="/heaconsole/web/webbuild/core/site_logoSetting.jsp"/>
+	   	<forward name="site_bannerSetting" path="/heaconsole/web/webbuild/core/site_bannerSetting.jsp"/>
+	   	<forward name="site_bannerUpload" path="/heaconsole/web/webbuild/core/site_bannerUpload.jsp"/>
+	   	<forward name="site_leftSideShadeSetting" path="/heaconsole/web/webbuild/core/site_leftSideShadeSetting.jsp"/>
+	   	<forward name="site_rightSideShadeSetting" path="/heaconsole/web/webbuild/core/site_rightSideShadeSetting.jsp"/>
+	   	<forward name="site_floatWinSetting" path="/heaconsole/web/webbuild/core/site_floatWinSetting.jsp"/>
+	   	<forward name="site_showSettedShade" path="/heaconsole/web/webbuild/core/site_showSettedShade.jsp"/>
+	   	
+	   	<forward name="site_popWinSetting" path="/heaconsole/web/webbuild/core/site_popWinSetting.jsp"/>
+	   	<forward name="site_popWinUpload" path="/heaconsole/web/webbuild/core/site_popWindowUpload.jsp"/>
+		
+	   </action>
+	   
+	   <action path="/heaResourceAction" name="resourceForm" parameter="action">
+	   		<forward name="site_leftSideShadeUpload" path="/heaconsole/web/webbuild/core/site_leftSideShadeUpload.jsp"/>
+	   		<forward name="site_rightSideShadeUpload" path="/heaconsole/web/webbuild/core/site_rightSideShadeUpload.jsp"/>
+	   		<forward name="site_floatWinUpload" path="/heaconsole/web/webbuild/core/site_floatWinUpload.jsp"/>
+	   		<forward name="site_logoUpload" path="/heaconsole/web/webbuild/core/site_logoUpload.jsp"/>
+	   		<forward name="site_bannerUpload" path="/heaconsole/web/webbuild/core/site_bannerUpload.jsp"/>
+	   		
+	   		<forward name="site_leftSideShadeSetting" path="/heaconsole/web/webbuild/core/site_leftSideShadeSetting.jsp"/>
+	   		<forward name="site_rightSideShadeSetting" path="/heaconsole/web/webbuild/core/site_rightSideShadeSetting.jsp"/>
+	   		<forward name="site_floatWinSetting" path="/heaconsole/web/webbuild/core/site_floatWinSetting.jsp"/>
+	   		<forward name="site_bannerSetting" path="/heaconsole/web/webbuild/core/site_bannerSetting.jsp"/>
+	   		<forward name="site_logoSetting" path="/heaconsole/web/webbuild/core/site_logoSetting.jsp"/>
+	   </action>
+	   
+	   <action path="/heaPopWindowAction" name="baseInfoForm" parameter="action">
+	   		<forward name="poplists" path="/heaconsole/web/webbuild/core/poplists.jsp"/>
+	   </action>
+	  <!-- end -->
+	  	<!-- 二级页面左侧菜单树 -->
+		<action path="/heaSecondClassPageAction" parameter="action" >
+			<forward name="childPage" path="/heaconsole/web/webbuild/core/childPage.jsp"/>
+		</action>
+  </action-mappings>
+	<controller maxFileSize="20M">
+		<set-property property="processorClass"
+			value="org.springframework.web.struts.DelegatingRequestProcessor" />
+	</controller>
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation"
+			value="classpath:com/wt/hea/common/config/applicationContext-action-servlet.xml" />
+	</plug-in>
+</struts-config>
+

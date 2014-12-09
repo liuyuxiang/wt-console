@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="GroupRelationship"
+		table="U2_GroupRelationship" lazy="true" abstract="true">
+
+		<composite-id>
+			<key-many-to-one column="childUUID" name="child" class="Group" />
+			<key-many-to-one column="parentUUID" name="parent"
+				class="Group" />
+		</composite-id>
+
+		<property column="childUUID" name="childUUID" not-null="true"
+			type="string" insert="false" update="false" />
+		<property column="parentUUID" name="parentUUID" not-null="true"
+			type="string" insert="false" update="false" />
+
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+</head>
+<body>
+
+	<wicket:panel>
+
+		<form wicket:id="yesNoForm" action="">
+                <span wicket:id="message" style="font-size:15px;color:black;">Are you sure?</span>
+                <table style="width: 65%;" align="center">
+                    <tr>
+                        <td align="left">
+                            <input type="submit" wicket:id="yesButton" value="是" />
+                        </td>
+                        <td align="right">
+                            <input type="submit" wicket:id="noButton" value="否" />
+                        </td>
+                    </tr>
+                </table>
+        </form>
+
+	</wicket:panel>
+
+</body>
+</html>

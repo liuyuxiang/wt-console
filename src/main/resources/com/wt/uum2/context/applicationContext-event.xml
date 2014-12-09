@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="eventFactory" class="com.wt.uum2.event.EventFactoryImpl">
+		<property name="uumService" ref="uumService"></property>
+	</bean>
+
+	<bean id="handlerThread" class="com.wt.uum2.event.EventListenerHandlerThread"
+		scope="prototype">
+		<property name="eventService" ref="eventService"></property>
+		<property name="eventListeners" ref="eventListeners"></property>
+		<property name="eventValidator" ref="eventValidator"></property>
+	</bean>
+
+	<bean id="eventListenerHandler" class="com.wt.uum2.event.EventListenerHandler">
+		<lookup-method name="createHandlerThread" bean="handlerThread" />
+		<property name="eventService" ref="eventService"></property>
+	</bean>
+
+	<bean id="eventValidator" class="com.wt.uum2.event.EventValidator">
+		<property name="eventService" ref="eventService"></property>
+	</bean>
+
+	<bean id="eventListenerSync" abstract="true"
+		class="com.wt.uum2.listener.impl.EventListenerAbstract"
+		lazy-init="true">
+		<property name="enable" value="true"></property>
+		<property name="uumService" ref="uumService"></property>
+		<property name="eventService" ref="eventService"></property>
+		<property name="synchronismService" ref="synchronismService"></property>
+	</bean>
+
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model" >
+    <class name="ThemeDefinition" table="P_THEME_DEFINITION">
+        <id name="themeCode" type="string" column="THEME_CODE" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="themeName" type="string"  column="THEME_NAME" length="256"/>
+        <property name="themePicPath" type="string" column="THEME_PICPATH" length="256"/>
+        <property name="themeContent" type="string" column="THEME_CONTENT"  length="256"/>
+        <property name="createDate" type="java.util.Date" column="CREATE_DATE" />
+        <property name="modifyDate" type="java.util.Date" column="MODIFY_DATE" />
+        <property name="themePath" type="string" column="THEME_PATH"/>
+        <property name="appId" type="string" column="APP_ID"/>
+    </class>
+</hibernate-mapping>

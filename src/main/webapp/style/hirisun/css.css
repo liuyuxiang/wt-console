@@ -1,0 +1,554 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align:center;
+}
+body,td,th {
+	font-family: 宋体;
+	font-size: 12px;
+	color: #000000;
+}
+
+.a_xw:link {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #333333;
+	text-decoration: none;
+	text-align: left;
+	text-valign:bottom;
+
+}
+.a_xw:visited {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #333333;
+	text-decoration: none;
+	text-align: left;
+	text-valign:bottom;
+}
+.a_xw:hover {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #F98413;
+	text-decoration: none;
+	text-align: left;
+	text-valign:bottom;
+}
+.a_xw:active {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #333333;
+	text-decoration: none;
+	text-align: left;
+}
+
+.a_tree:link {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 28px;
+	color: #066D62;
+	text-decoration: none;
+	text-align: left;
+
+}
+.a_tree:visited {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 28px;
+	color: #333333;
+	text-decoration: none;
+	text-align: left;
+}
+.a_tree:hover {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 28px;
+	color: #F98413;
+	text-decoration: none;
+	text-align: left;
+}
+.a_tree:active {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #333333;
+	text-decoration: none;
+	text-align: left;
+}
+
+
+/*top  样式*/
+.a_menu:link {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 42px;
+	color: #fdd546;
+	text-decoration: none;
+	height: 42px;
+	width: 71px;
+	text-align: center;
+}
+
+.a_menu:visited {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 42px;
+	color: #fdd546;
+	text-decoration: none;
+	height: 42px;
+	width: 71px;
+	text-align: center;
+}
+.a_menu:hover {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 42px;
+	font-weight: bold;
+	color: 095148;
+	text-decoration: none;
+	background-image: url(../images/menu_a.png);
+	text-align: center;
+	height: 42px;
+	width: 71px;
+}
+.a_menu:active {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 42px;
+	font-weight: bold;
+	color: 095148;
+	text-decoration: none;
+	background-image: url(../images/menu_a.png);
+	text-align: center;
+	height: 42px;
+	width: 71px;
+}
+.a_menu-rj:link {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 42px;
+	color: #fdd546;
+	text-decoration: none;
+	height: 42px;
+	width: 71px;
+	text-align: center;
+}
+.a_menu-rj:visited {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 42px;
+	color: #fdd546;
+	text-decoration: none;
+	height: 42px;
+	width: 71px;
+	text-align: center;
+}
+.a_menu-rj:hover {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 42px;
+	font-weight: bold;
+	color: 095148;
+	text-decoration: none;
+	background-image: url(../images/menu_a2.png);
+	text-align: center;
+	height: 42px;
+	width: 71px;
+}
+.a_menu-rj:active {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 42px;
+	font-weight: bold;
+	color: 095148;
+	text-decoration: none;
+	background-image: url(../images/menu_a.png);
+	text-align: center;
+	height: 42px;
+	width: 71px;
+}
+
+/*通讯录---------------------------------------------------------------------------------样式*/
+.tb_txl{
+    border:1px solid #9DB9B5;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+/*通讯录  left---------------------------------------------------------------------------样式*/
+.bg_txl_left{
+    width:200px;
+	background-color:#FFFFFF;
+    border-right:1px solid #9DB9B5;
+}
+.txl_left{
+    width:100%;
+	height:50px;
+	background-image:url(../images/p_txl.gif);
+}
+.bg_title_left{
+    width:100%;
+	height:30px;
+	background-image:url(../images/bg_title_left.gif);
+	text-align:left;
+	line-height:30px;
+}
+
+.left_menu01{
+    width:65px;
+	height:30px;
+	text-align:center;
+	font-family:"宋体";
+	font-size:12px;
+	color:#000000;
+	background-image:url(../images/left_menu01.gif);
+	float:left;
+	line-height:30px;
+	text-valign:bottom;
+}
+.left_menu02{
+    width:65px;
+	height:30px;
+	text-align:center;
+	font-family:"宋体";
+	font-size:12px;
+	color:#066D62;
+	padding-top:2px;
+	line-height:28px;
+	background-image:url(../images/left_menu02.gif);
+	float:left;
+}
+
+
+
+/*通讯录  right---------------------------------------------------------------------------样式*/
+.bg_right_tool{
+    width:100%;
+	height:63px;
+	background-image:url(../images/bg_right_tool.gif);
+	text-align:left;
+	line-height:63px;
+}
+
+.bg_right_tool_1{
+    width:100%;
+	height:63px;
+	background-image:url(../images/bg_right_tool.gif);
+	text-align:right;
+	line-height:63px;
+}
+
+.bg_right_ss{
+	height:30px;
+	background-image:url(../images/bg_right_ss.gif);
+	
+}
+.right_ss{
+    width:400px;
+	height:30px;
+	line-height:30px;
+	text-align:left;
+	font-family:"宋体";
+	font-size:12px;
+	color:#000000;
+	margin-left:10px;
+	float:left;
+}
+.input_ss{
+    width:100px;
+	height:16px;	
+}
+
+.right_ym{
+    width:350px;
+	height:30px;
+	line-height:30px;
+	text-align:right;
+	font-family:"宋体";
+	font-size:12px;
+	margin-right:10px;
+	color:#000000;
+	float:right;
+}
+.tb_total{
+    width:200px;
+	height:30px;
+	margin-left:10px;
+	text-align:left;
+	line-height:30px;
+	float:left;
+	font-family:"宋体";
+	font-size:12px;
+	color:#000000;
+}
+
+.a_ym:link {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+}
+.a_ym:visited {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+}
+.a_ym:hover {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #0ADDA9;
+	text-decoration: none;
+}
+.a_ym:active {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #0ADDA9;
+	text-decoration: none;
+}
+.tb1_title{
+    height:22px;
+	font-family:"宋体";
+	font-size:12px;
+	font-weight:bold;
+	color:#004f99;
+	background-image:url(images/tb1_title.gif);
+	line-height:22px;
+	text-align:center;
+	
+}
+
+.tb1_data {
+   text-align:center;
+}
+
+
+
+/*发送短信---------------------------------------------------------------------------样式*/
+.bg_title{
+    height:30px;
+	background-image:url(../images/bg_01.gif);
+	text-align:left;
+}
+.font_note{
+    font-family:"宋体";
+	font-size:12px;
+	color:#999999;
+}
+.input_fsdx_01{
+    width:520px;
+	height:16px;
+}
+
+.textarea_fsdx_02{
+    width:520px;
+	height:200px;
+}
+
+.bg_bottom_line{
+    width:600px;
+	height:40px;
+	background-image:url(images/bg_bottom_line.png);
+	text-align:center;
+	line-height:40px;
+	padding-top:20px;
+}
+
+
+/*发送邮件---------------------------------------------------------------------------样式*/
+.input_fsyj_01{
+    width:680px;
+	height:16px;
+}
+
+.textarea_fsyj_02{
+    width:680px;
+	height:250px;
+}
+.input_fsyj_03{
+    width:300px;
+	height:16px;
+}
+
+
+
+
+.font_white{
+    font-family:"宋体";
+	font-size:12px;
+	font-weight:bold;
+	color:#FFFFFF;
+	text-align:left;
+	line-height:31px;
+}
+.td_body{
+    border:1px #0A6256 solid;
+	background-image:url(../images/bg_rcap.gif);
+}
+.rcap_td_info{
+    margin-top:5px;
+    border:1px #B9D0CD solid;
+	padding:2px;
+}
+
+
+
+
+
+
+/*添加---------------------------------------------------------------------------样式*/
+.bg_right_add{
+    width:100%;
+	height:50px;
+	background-image:url(../images/bg_right_tool.gif);
+	text-align:left;
+	line-height:63px;
+	line-height:50px;
+}
+
+
+/*新建人员---------------------------------------------------------------------------样式*/
+.xjry_tb01{
+    width:80px;
+	height:30px;
+	text-align:right;
+	vertical-align:middle;
+}
+
+.xjry_tb02{
+    width:217px;
+	height:30px;
+	text-align:left;
+	vertical-align:middle;
+}
+.xjry_tb_bz{
+    width:520px;
+	text-align:left;
+	vertical-align:middle;
+}
+.input_xjry{
+    width:200px;
+	height:16px;
+}
+
+
+/*bottom  样式*/
+.td_CopyRight {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 37px;
+	color: #fdd546;
+	text-align: center;
+}
+
+
+
+
+
+/*提示信息  样式*/
+.msg_text{
+    padding-top:20px;
+	font-family:"宋体";
+	font-size:14px;
+	font-weight:bold;
+	line-height:30px;
+	text-align:center;
+	color:#4A4A4A;
+}
+
+/*左侧菜单树 样式*/
+.menu_frame{
+	width:100%; height:100%; border:0px;
+}
+/*********************************************/
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	text-align:left;
+}
+
+/*个人信息管理 ------------------------------- 样式*/
+.bg_tab{
+    width:100%;
+	height:30px;
+	background-image:url(images/bg_01.gif);
+	text-align:left;
+}
+.bg_tabbutton{
+    width:185px;
+	height:30px;
+	float:left;
+}
+.bg_content{
+   width:100%;
+   background-image:url(images/bg_02.gif);
+   padding-top:20px;
+}
+
+.font_12{
+    font-family:"宋体";
+	font-size:12px;
+	color:#000000;
+	line-height:25px;
+}
+.input_01{
+    width:100px;
+	height:15px;
+}
+.bg_button{
+	height:60px;
+	text-align:center;
+	vertical-align:middle;
+	background-image:url(images/bg_bottom_line.png);
+}
+
+.table_title{
+    height:22px;
+	background-image:url(images/tb1_title.gif);
+	text-align:center;
+	font-family:"宋体";
+	font-size:12px;
+	color:#14655C;
+	font-weight:bold;
+	line-height:22px;
+}
+
+.margin_bottom{
+    margin-bottom:20px;
+}
+
+/*个人信息增加 ------------------------------- 样式*/
+.bg_search{
+    width:100%;
+	height:30px;
+	text-align:left;
+	background-image:url(../images/bg_right_tool.gif);
+	font-family:"宋体";
+	font-size:12px;
+	color:#000000;
+	line-height:30px;
+	padding-left:10px;
+}
+
+.title_div {
+	height:22px;
+	font-family:"宋体";
+	font-size:14px;
+	font-weight:bold;
+	color:#127365;
+	line-height:22px;
+	text-align:center;
+	
+}
+.input_02{
+    width:80px;
+	height:15px;
+}

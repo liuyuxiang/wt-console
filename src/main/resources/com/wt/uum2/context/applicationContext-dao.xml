@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="hibernateDaoSupport" abstract="true"
+		class="org.springframework.orm.hibernate3.support.HibernateDaoSupport">
+		<property name="sessionFactory" ref="heaSessionFactory" />
+	</bean>
+
+	<bean id="baseDao" abstract="true" class="nak.nsf.dao.support.BaseDaoSupport"
+		parent="hibernateDaoSupport" />
+
+	<bean id="userDao" class="com.wt.uum2.dao.impl.UserDaoImpl"
+		parent="baseDao" />
+
+	<bean id="userGroupDao" class="com.wt.uum2.dao.impl.UserGroupDaoImpl"
+		parent="baseDao" />
+
+	<bean id="dutyDao" class="com.wt.uum2.dao.impl.DutyDaoImpl"
+		parent="baseDao" />
+
+	<bean id="userdutyDao" class="com.wt.uum2.dao.impl.UserDutyDaoImpl"
+		parent="baseDao" />
+
+	<bean id="userApplicationDao" class="com.wt.uum2.dao.impl.UserApplicationDaoImpl"
+		parent="baseDao" />
+
+	<bean id="resourceAdminGroupDao" class="com.wt.uum2.dao.impl.ResourceAdminGroupDaoImpl"
+		parent="baseDao" />
+
+	<bean id="userDepartmentDao" class="com.wt.uum2.dao.impl.UserDepartmentDaoImpl"
+		parent="baseDao" />
+
+	<bean id="groupRelationshipDao" class="com.wt.uum2.dao.impl.GroupRelationshipDaoImpl"
+		parent="baseDao" />
+
+	<bean id="departmentDao" class="com.wt.uum2.dao.impl.DepartmentDaoImpl"
+		parent="baseDao" />
+
+	<bean id="groupDao" class="com.wt.uum2.dao.impl.GroupDaoImpl"
+		parent="baseDao" />
+
+	<bean id="attributeDao" class="com.wt.uum2.dao.impl.AttributeDaoImpl"
+		parent="baseDao" />
+
+	<bean id="applicationDao" class="com.wt.uum2.dao.impl.ApplicationDaoImpl"
+		parent="baseDao" />
+
+	<bean id="attributeTypeDao" class="com.wt.uum2.dao.impl.AttributeTypeDaoImpl"
+		parent="baseDao" />
+
+	<bean id="attributeValueDao" class="com.wt.uum2.dao.impl.AttributeValueDaoImpl"
+		parent="baseDao" />
+
+	<bean id="stringValueDao" class="com.wt.uum2.dao.impl.StringValueDaoImpl"
+		parent="baseDao" />
+
+	<bean id="textValueDao" class="com.wt.uum2.dao.impl.TextValueDaoImpl"
+		parent="baseDao" />
+
+	<bean id="longValueDao" class="com.wt.uum2.dao.impl.LongValueDaoImpl"
+		parent="baseDao" />
+
+	<bean id="resourceLogDao" class="com.wt.uum2.dao.impl.ResourceLogDaoImpl"
+		parent="baseDao" />
+
+	<bean id="authenticationProfileDao" class="com.wt.uum2.dao.impl.AuthenticationProfileDaoImpl"
+		parent="baseDao" />
+
+	<bean id="userMappingDao" class="com.wt.uum2.dao.impl.UserMappingDaoImpl"
+		parent="baseDao" />
+
+	<bean id="candidateItemDao" class="com.wt.uum2.dao.impl.CandidateItemDaoImpl"
+		parent="baseDao" />
+
+	<bean id="resourceSyncDao" class="com.wt.uum2.dao.impl.ResourceSyncDaoImpl"
+		parent="baseDao" />
+
+	<bean id="userAuthorDao" class="com.wt.uum2.dao.impl.UserAuthorDaoImpl"
+		parent="baseDao" />
+
+	<bean id="departmentAuthorDao" class="com.wt.uum2.dao.impl.DepartmentAuthorDaoImpl"
+		parent="baseDao" />
+
+	<bean id="departmentTempLogDao" class="com.wt.uum2.dao.impl.DepartmentTempLogDaoImpl"
+		parent="baseDao" />
+
+	<bean id="userTempLogDao" class="com.wt.uum2.dao.impl.UserTempLogDaoImpl"
+		parent="baseDao" />
+
+	<bean id="departmentTempDao" class="com.wt.uum2.dao.impl.DepartmentTempDaoImpl"
+		parent="baseDao" />
+
+	<bean id="resourceTempDetailsDao" class="com.wt.uum2.dao.impl.ResourceTempDetailsDaoImpl"
+		parent="baseDao" />
+
+	<bean id="userTempDao" class="com.wt.uum2.dao.impl.UserTempDaoImpl"
+		parent="baseDao" />
+
+	<bean id="syncEDDao" class="com.wt.uum2.dao.impl.SyncEDDaoImpl"
+		parent="baseDao" />
+
+	<bean id="taskListDao" class="com.wt.uum2.dao.impl.TaskListDaoImpl"
+		parent="baseDao" />
+
+	<bean id="eventDao" class="com.wt.uum2.dao.impl.EventDaoImpl"
+		parent="baseDao" />
+
+	<bean id="eventParamDao" class="com.wt.uum2.dao.impl.EventParamDaoImpl"
+		parent="baseDao" />
+
+	<bean id="departmentPathDao" class="com.wt.uum2.dao.impl.DepartmentPathDaoImpl"
+		parent="baseDao" />
+
+	<bean id="roleDao" class="com.wt.uum2.dao.impl.RoleDaoImpl"
+		parent="baseDao" />
+
+	<bean id="syncLogDao" class="com.wt.uum2.dao.impl.SyncLogDaoImpl"
+		parent="baseDao" />
+
+	<bean id="resourceMappingDao" class="com.wt.uum2.dao.impl.ResourceMappingDaoImpl"
+		parent="baseDao" />
+
+	<bean id="serverLogDao" class="com.wt.uum2.dao.impl.ServerLogDaoImpl"
+		parent="baseDao" />
+		
+	<bean id="dbInfoDao" class="com.wt.uum2.dao.impl.DBInfoDaoImpl">
+		<property name="dataSource" ref="dataSource" /></bean>
+	
+	<bean id="deviceDao" class="com.wt.uum2.dao.impl.DeviceDaoImpl" parent="baseDao" >	
+	</bean>
+	
+</beans>

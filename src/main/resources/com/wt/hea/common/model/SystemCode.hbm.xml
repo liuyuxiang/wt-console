@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.hea.common.model">
+    <class name="SystemCode" table="HEA_SYSTEM_CODE">
+       	<id name="id" type="java.lang.String">
+            <column name="ID" />
+            <generator class="uuid.hex"/>
+        </id>
+       
+        <property name="regCode" type="java.lang.String">
+            <column name="REG_CODE" />
+        </property>
+         <property name="regType" type="java.lang.String">
+            <column name="REG_TYPE"/>
+        </property>
+        
+        <property name="regName" type="java.lang.String">
+            <column name="REG_NAME" length="200" not-null="true" />
+        </property>
+        <property name="regDesc" type="java.lang.String">
+            <column name="REG_DESC" length="500" />
+        </property>
+        <property name="regProp" type="java.lang.String">
+            <column name="REG_PROP" length="50" />
+        </property>
+        <property name="regOrder" type="java.lang.Integer">
+            <column name="REG_ORDER"/>
+        </property>
+        <property name="regValue" type="java.lang.String">
+            <column name="REG_VALUE" length="1000" />
+        </property>
+        <property name="parentId" type="java.lang.String">
+            <column name="PARENT_ID" length="32" />
+        </property>
+        <property name="indexLevel" type="java.lang.Integer">
+            <column name="INDEXLEVEL" />
+        </property>
+        <property name="haschild" type="java.lang.Integer">
+            <column name="HASCHILD" />
+        </property>
+        <property name="levelCode" type="java.lang.String">
+            <column name="LEVEL_CODE" />
+        </property>
+        <property name="regLabel" type="java.lang.String">
+            <column name="REG_LABEL" />
+        </property>
+        <property name="appId" type="java.lang.String">
+        	<column name="APP_ID"/>
+        </property>
+        
+      
+    </class>
+</hibernate-mapping>

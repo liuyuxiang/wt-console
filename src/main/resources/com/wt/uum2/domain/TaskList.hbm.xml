@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="TaskList"
+		table="U2_TaskList" lazy="true">
+
+			<id column="uuid" length="32" name="uuid" type="string">
+			   <generator class="uuid" />
+		    </id>
+           
+			<property column="id" name="id" length="100" not-null="false" type="string" />
+			
+			<property column="linkOrder" name="linkOrder" not-null="false" type="integer" />
+			
+			<property column="linkName" name="linkName" length="1000"	not-null="false" type="string" />
+			
+			<property column="linkUrl" name="linkUrl" length="1000" not-null="false" type="string" />
+			
+			<set name="adminGroups" table="U2_AdminGroupTaskList" lazy="true">
+               <key column="taskListUUID" />
+               <many-to-many column="groupUUID" class="Group" />
+            </set>  
+
+	</class>
+</hibernate-mapping>

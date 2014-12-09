@@ -1,0 +1,78 @@
+@CHARSET "UTF-8";
+
+.treeleft {
+	width: 30%;
+	float: left;
+	overflow: auto;
+	border: 1px solid #617775;
+	height: 770px;
+}
+
+.treeright {
+	float: left;
+	width: 69%;
+}
+
+.datatitle {
+	text-align: center;
+	color: rgb(102, 102, 102);
+	font-family: "微软雅黑";
+	font-size: 14px;
+	font-weight: 700;
+}
+.tableborder{
+	border-left:thin solid rgb(201, 201, 201);
+	
+	width:100%;
+	height:100%;
+}
+.headers {
+	text-align: center;
+	color: rgb(102, 102, 102);
+	font-family: "微软雅黑";
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.headers th {
+	height: 30px;
+	line-height: 30px;
+	border-right-color: rgb(201, 201, 201);
+	border-bottom-color: rgb(201, 201, 201);
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	background-color: rgb(237, 237, 237);
+}
+
+.addressleftbodyhead {
+	height: 43px;
+	line-height: 45px;
+	border-bottom-color: rgb(255, 255, 255);
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	background-image: url("./images/shu.png");
+	background-repeat: repeat-x;
+	background-color: rgb(180, 32, 32);
+}
+
+.even td,.odd td,.norecords-td {
+	height: 30px;
+	text-align: center;
+	color: rgb(102, 102, 102);
+	line-height: 30px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	font-weight: normal;
+	border-right-color: rgb(201, 201, 201);
+	border-bottom-color: rgb(201, 201, 201);
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-right-style: solid;
+	border-bottom-style: solid;
+}
+
+.headerwidth {
+	width: 80%;
+}

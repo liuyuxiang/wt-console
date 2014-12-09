@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="personalzeBaseService" class="com.wt.hea.webbuilder.service.impl.BaseService">
+		<property name="portletPropertyDao" ref="heaPortletPropertyDao"/>
+		<property name="userPageDao" ref="heaUserPageDao"/>
+		<property name="userPersonalInfoDao" ref="heaUserPersonalInfoDao"/>
+		<property name="layoutDefinitionDao" ref="heaLayoutDefinitionDao"/>
+		<property name="themeDefinitionDao" ref="heaThemeDefinitionDao"/>
+		<property name="templatePageDao" ref="heaTemplatePageDao"/>
+		<property name="templatePortletInfoDao" ref="heaTemplatePortletInfoDao"/>
+		<property name="placeHolderDao" ref="heaPlaceHolderDao" />
+		<property name="templateLayoutDao" ref="heaTemplateLayoutDao" />
+		<property name="siteManageDao" ref="heaSiteManageDao" />
+		<property name="personalSystemParameterDao" ref="heaPersonalSystemParameterDao"/>
+		<property name="placeHolderGroupDao" ref="heaPlaceHolderGroupDao"/>
+		<property name="resourceDao" ref="heaResourceDao"/>
+		<property name="baseInfoDao" ref="heaBaseInfoDao"/>
+		<property name="rbacService" ref="heaRbacService"/>
+		<property name="popWindowDao" ref="heaPopWindowDao"/>
+	</bean>
+	
+	<!-- 个性化模块JDBC基类业务对象 -->
+	<bean id="personalzeJdbcBaseService" class="com.wt.hea.webbuilder.service.impl.JdbcBaseService">
+		<property name="jdbcIndexDao" ref="heaJdbcIndexDao"/>
+	</bean>
+	<!-- 个性化模块JDBC基类业务对象 -->
+	<bean id="heaJdbcIndexService" class="com.wt.hea.webbuilder.service.impl.JdbcIndexServiceImpl" parent="personalzeJdbcBaseService"/>
+	
+	<bean id="portletPropertyService" class="com.wt.hea.webbuilder.service.impl.PortletPropertyServiceImpl" parent="personalzeBaseService"/>
+	<bean id="userPageService" class="com.wt.hea.webbuilder.service.impl.UserPageServiceImpl" parent="personalzeBaseService"/>
+	<bean id="userPersonalInfoService" class="com.wt.hea.webbuilder.service.impl.UserPersonalInfoServiceImpl" parent="personalzeBaseService"/>	
+	<bean id="layoutDefinitionservice" class="com.wt.hea.webbuilder.service.impl.LayoutDefinitionServiceImpl" parent="personalzeBaseService"/>
+	<bean id="themeDefinitionService" class="com.wt.hea.webbuilder.service.impl.ThemeDefinitionServiceImpl" parent="personalzeBaseService"/>
+	<bean id="templatePageService" class="com.wt.hea.webbuilder.service.impl.TemplatePageServiceImpl" parent="personalzeBaseService"/>
+	<bean id="templatePortletInfoService" class="com.wt.hea.webbuilder.service.impl.TemplatePortletInfoServiceImpl" parent="personalzeBaseService"/>
+	<bean id="templateLayoutService" class="com.wt.hea.webbuilder.service.impl.TemplateLayoutSerivceImpl" parent="personalzeBaseService"/>
+	<bean id="placeHolderService" class="com.wt.hea.webbuilder.service.impl.PlaceHolderServiceImpl" parent="personalzeBaseService"/>
+	<bean id="siteManageService" class="com.wt.hea.webbuilder.service.impl.SiteManageServiceImpl" parent="personalzeBaseService"/>
+	<bean id="personalSystemParameterService" class="com.wt.hea.webbuilder.service.impl.PersonalSystemParameterServiceImpl" parent="personalzeBaseService"/>
+	<bean id="placeHolderGroupService" class="com.wt.hea.webbuilder.service.impl.PlaceHolderGroupServiceImpl" parent="personalzeBaseService"/>
+	<bean id="resourceService" class="com.wt.hea.webbuilder.service.impl.ResourceServiceImpl" parent="personalzeBaseService"/>			
+	<bean id="baseInfoService" class="com.wt.hea.webbuilder.service.impl.BaseInfoServiceImpl" parent="personalzeBaseService"/>
+	<bean id="popWindowService" class="com.wt.hea.webbuilder.service.impl.PopWindowServiceImpl" parent="personalzeBaseService"/>			
+</beans>

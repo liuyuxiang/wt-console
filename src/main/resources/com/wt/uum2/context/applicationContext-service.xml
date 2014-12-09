@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="uumService" class="com.wt.uum2.service.impl.UUMServiceImpl">
+		<property name="departmentDao" ref="departmentDao" />
+		<property name="userDao" ref="userDao" />
+		<property name="groupDao" ref="groupDao" />
+		<property name="attributeDao" ref="attributeDao" />
+		<property name="applicationDao" ref="applicationDao" />
+		<property name="attributeTypeDao" ref="attributeTypeDao" />
+		<property name="attributeValueDao" ref="attributeValueDao" />
+		<property name="resourceLogDao" ref="resourceLogDao" />
+		<property name="userMappingDao" ref="userMappingDao" />
+		<property name="candidateItemDao" ref="candidateItemDao" />
+		<property name="resourceSyncDao" ref="resourceSyncDao" />
+		<property name="userAuthorDao" ref="userAuthorDao" />
+		<property name="departmentAuthorDao" ref="departmentAuthorDao" />
+		<property name="stringValueDao" ref="stringValueDao" />
+		<property name="syncEDDao" ref="syncEDDao" />
+		<property name="userGroupDao" ref="userGroupDao" />
+		<property name="resourceAdminGroupDao" ref="resourceAdminGroupDao"></property>
+		<property name="userDepartmentDao" ref="userDepartmentDao"></property>
+		<property name="groupRelationshipDao" ref="groupRelationshipDao" />
+		<property name="authenticationProfileDao" ref="authenticationProfileDao"></property>
+		<property name="departmentPathService" ref="departmentPathService"></property>
+		<property name="serverLogDao" ref="serverLogDao"></property>
+		<property name="taskListDao" ref="taskListDao" />
+		<property name="resourceMappingDao" ref="resourceMappingDao"></property>
+		<property name="departmentPathDao" ref="departmentPathDao" />
+	</bean>
+
+	<bean id="uumDataService" class="com.wt.uum2.service.impl.UUMDataServiceImpl">
+		<property name="userTempLogDao" ref="userTempLogDao" />
+		<property name="departmentTempLogDao" ref="departmentTempLogDao" />
+		<property name="resourceTempDetailsDao" ref="resourceTempDetailsDao"></property>
+	</bean>
+
+	<bean id="uumAppService" class="com.wt.uum2.service.impl.UUMAppServiceImpl">
+		<property name="applicationDao" ref="applicationDao" />
+		<property name="authenticationProfileDao" ref="authenticationProfileDao" />
+		<property name="userApplicationDao" ref="userApplicationDao" />
+	</bean>
+
+	<bean id="departmentPathService" class="com.wt.uum2.service.impl.DepartmentPathServiceImpl">
+		<property name="departmentPathDao" ref="departmentPathDao" />
+		<property name="departmentDao" ref="departmentDao" />
+	</bean>
+
+	<bean id="roleService" class="com.wt.uum2.service.impl.RoleServiceImpl">
+		<property name="roleDao" ref="roleDao" />
+	</bean>
+
+	<bean id="dutyService" class="com.wt.uum2.service.impl.DutyServiceImpl">
+		<property name="dutyDao" ref="dutyDao" />
+		<property name="userdutyDao" ref="userdutyDao" />
+	</bean>
+
+	<bean id="synchronismService" class="com.wt.uum2.service.impl.SynchronismServiceImpl">
+		<property name="syncLogDao" ref="syncLogDao" />
+		<property name="eventDao" ref="eventDao"></property>
+	</bean>
+
+	<bean id="uumTempDataService" class="com.wt.uum2.service.impl.UUMTempDataServiceImpl">
+		<property name="userTempDao" ref="userTempDao" />
+		<property name="departmentTempDao" ref="departmentTempDao" />
+		<property name="resourceMappingDao" ref="resourceMappingDao"></property>
+	</bean>
+
+	<bean id="taskListService" class="com.wt.uum2.service.impl.TaskListServiceImpl">
+		<property name="taskListDao" ref="taskListDao" />
+		<property name="resourceLogDao" ref="resourceLogDao" />
+		<property name="eventDao" ref="eventDao"></property>
+	</bean>
+
+	<bean id="eventService" class="com.wt.uum2.service.impl.EventServiceImpl">
+		<property name="eventDao" ref="eventDao"></property>
+		<property name="eventParamDao" ref="eventParamDao"></property>
+	</bean>
+	
+	<bean id="permissionService" class="com.wt.uum2.service.impl.PermissionServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+		<property name="groupDao" ref="groupDao"></property>
+		<property name="departmentPathDao" ref="departmentPathDao"></property>
+	</bean>
+
+	<bean id="baseUserListService" class="com.wt.uum2.service.impl.UserListServiceImpl">
+		<property name="userDao" ref="userDao" />
+		<property name="attributeDao" ref="attributeDao" />
+		<property name="cols">
+			<list>
+				<value>num</value>
+				<value>userID</value>
+				<value>userName</value>
+				<value>userDept</value>
+				<value>erpCode</value>
+				<value>relatedUser</value>
+			</list>
+		</property>
+		<property name="defaultLocale">
+			<null></null>
+		</property><!-- en_US,zh_CN -->
+		<property name="messageSource" ref="messageSource" />
+		<property name="startNum" value="1" />
+	</bean>
+
+	<bean id="dbInfoService"
+		class="com.wt.uum2.service.impl.DBInfoServiceImpl"
+		init-method="init">
+		<property name="dbInfoDao" ref="dbInfoDao"></property>
+	</bean>
+	
+	<bean id="deviceService" class="com.wt.uum2.service.impl.DeviceServiceImpl">
+		<property name="deviceDao" ref="deviceDao"></property>
+		<property name="authCodeGenerator" ref="authCodeGenerator"></property>
+	</bean>
+
+	<bean id="groupService" class="com.wt.uum2.service.impl.GroupServiceImpl">
+		<property name="userDao" ref="userDao" />
+		<property name="groupDao" ref="groupDao" />
+		<property name="userGroupDao" ref="userGroupDao" />		
+	</bean>
+	
+</beans>

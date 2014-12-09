@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="TemplatePage" table="P_TMPL_PAGE">
+        <id name="pageId" type="string" column="PAGE_ID" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="siteNo" type="string"  column="site_No"/>
+        <property name="siteName" type="string" column="site_Name"/>
+        <property name="pageNo" type="string" column="PAGE_NO" length="32"/>
+        <property name="pageName" type="string" column="PAGE_NAME"/>
+        <property name="siteId" type="string" column="site_id" insert="false" update="false" />
+        <property name="tmplId" type="string" column="tmpl_id" insert="false" update="false" />
+        <property name="type" type="string" column="PAGE_TYPE" length="16" />
+        <property name="pageTitle" type="string"  column="PAGE_TITLE" length="256"/>
+        <property name="layoutCode" type="string" column="LAYOUT_CODE" length="16"/>
+        <property name="themeCode" type="string" column="THEME_CODE" length="16" />
+        <property name="pageStatus" type="string" column="page_status"/>
+        <property name="ifDefault" type="integer" column="IF_DEFAULT" length="5" />
+        <property name="dispSn" type="integer" column="DISP_SN" length="5" />
+        <property name="pageAddr" type="string" column="page_addr"/>
+        <property name="pubTime" type="java.util.Date" column="pub_time"/>
+        <property name="userNo" type="string" column="user_no"/>
+        <property name="pubAddr" type="string" column="pub_addr"/>
+        <property name="contentType" type="string" column="content_type" length="1"/>
+        <bag name="templatePortletInfoList" order-by="sort_No,disp_Sn" lazy="false" >
+			<key column="PAGE_ID" />
+			<one-to-many class="TemplatePortletInfo" />
+		</bag>
+		<many-to-one name="siteManage" column="site_id" class="SiteManage" lazy="false"></many-to-one>
+		<many-to-one name="templateLayout" column="tmpl_id" class="TemplateLayout" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<wicket:panel>
+		<form wicket:id="serverLog">
+			<div style="text-align: center">
+				<table align="center" border="1" cellspacing="2" cellpadding="0">
+					<tr>
+						<td colspan=4><b style="font-size: 16px;">服务器状态</b></td>
+					</tr>
+					<tr>
+						<td width="12%">模块标识</td>
+						<td><span wicket:id="projectId"></span></td>
+						<td width="12%">版本信息</td>
+						<td><span wicket:id="projectVer"></span></td>
+					</tr>
+					<tr>
+						<td width="12%">最近停启时间</td>
+						<td><span wicket:id="handleTime"></span></td>
+						<td width="12%">服务器IP</td>
+						<td><span wicket:id="ip"></span></td>
+					</tr>
+					<tr>
+						<td width="12%">操作系统信息</td>
+						<td><span wicket:id="osMsg"></span></td>
+						<td width="12%">工程安装路径</td>
+						<td><span wicket:id="userDir"></span></td>
+					</tr>
+					<tr>
+						<td width="12%">jvm安装路径</td>
+						<td><span wicket:id="javaHome"></span></td>
+						<td width="12%">java版本信息</td>
+						<td><span wicket:id="javaVersion"></span></td>
+					</tr>
+				</table>
+			</div>
+			<br /> <br />
+		</form>
+	</wicket:panel>
+</body>
+</html>

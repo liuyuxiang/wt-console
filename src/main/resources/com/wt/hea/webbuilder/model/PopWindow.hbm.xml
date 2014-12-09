@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="PopWindow" table="P_POP_INFO">
+        <id name="popId" type="string" column="POP_ID" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="siteId" type="string" column="SITE_ID" />
+        <property name="topId" type="string" column="TOP_ID"/>
+        <property name="popTitle" type="string" column="POP_TITLE" />
+        <property name="popContent" type="string" column="POP_CONTENT" />
+        <property name="popStatus" type="string" column="POP_STATUS" />
+        <property name="startTime" type="string" column="START_TIME" />
+        <property name="endTime" type="string" column="END_TIME" />
+        <property name="popUrl" type="string" column="POP_URL" />
+        <property name="width" type="int" column="width"/>
+        <property name="height" type="int" column="height"/>
+    </class>
+</hibernate-mapping>

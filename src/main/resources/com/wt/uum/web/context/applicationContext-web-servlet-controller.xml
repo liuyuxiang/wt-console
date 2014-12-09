@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="indexController" class="com.wt.uum2.web.IndexController" >
+		<property name="uumService" ref="uumService" />
+		<property name="taskListService" ref="taskListService" />
+		<property name="sendMail" ref="sendMail" />
+		<property name="eventListenerHandler" ref="eventListenerHandler"></property>
+		<property name="eventFactory" ref="eventFactory"></property>
+		<property name="userListService" ref="userListService" />
+		<property name="departmentPathService" ref="departmentPathService"></property>
+		<property name="uumTempDataService" ref="uumTempDataService"></property>
+		<property name="dutyService" ref="dutyService"></property>
+	</bean>
+
+	<bean id="departmentController" class="com.wt.uum2.web.DepartmentController">
+		<property name="uumService" ref="uumService" />
+	</bean>
+	
+	<bean id="appController" class="com.wt.uum2.web.AppController">
+		<property name="uumService" ref="uumService" />
+		<property name="eventListenerHandler" ref="eventListenerHandler"></property>
+		<property name="eventFactory" ref="eventFactory"></property>
+	</bean>
+
+	<bean id="applicationController" class="com.wt.uum2.web.ApplicationController">
+		<property name="uumService" ref="uumService" />
+		<property name="uumAppService" ref="uumAppService"></property>
+		<property name="eventListenerHandler" ref="eventListenerHandler"></property>
+		<property name="eventFactory" ref="eventFactory"></property>
+	</bean>
+
+	<bean id="attrController" class="com.wt.uum2.web.AttrController">
+		<property name="uumService" ref="uumService" />
+	</bean>
+		
+	<bean id="auditController" class="com.wt.uum2.web.AuditController">
+		<property name="uumService" ref="uumService" />
+		<property name="taskListService" ref="taskListService"></property>
+		<property name="synchronismService" ref="synchronismService"></property>
+	</bean>
+		
+	<bean id="groupController" class="com.wt.uum2.web.GroupController">
+		<property name="uumService" ref="uumService" />
+		<property name="userListService" ref="userListService" />
+		<property name="eventListenerHandler" ref="eventListenerHandler"></property>
+		<property name="eventFactory" ref="eventFactory"></property>
+	</bean>
+	
+	<bean id="taskListController" class="com.wt.uum2.web.TaskListController">
+		<property name="uumService" ref="uumService" />
+		<property name="taskListService" ref="taskListService" />
+		<property name="eventListenerHandler" ref="eventListenerHandler"></property>
+		<property name="eventFactory" ref="eventFactory"></property>
+		<property name="userListService" ref="userListService" />
+	</bean>
+	<bean id="appTaskController" class="com.wt.uum2.web.AppTaskController">
+		<property name="uumService" ref="uumService" />
+		<property name="userListService" ref="userListService" />
+	</bean>
+	<bean id="dbInfoController" class="com.wt.uum2.web.DBInfoController">
+		<property name="dbInfoService" ref="dbInfoService" />
+	</bean>
+	<bean id="constantsController" class="com.wt.uum2.web.ConstantsController">
+		<property name="setting" ref="setting"></property>
+	</bean>
+	<bean id="excelExportController" class="com.wt.uum2.web.ExcelExportController">
+		<property name="uumService" ref="uumService" />
+		<property name="uumDataService" ref="uumDataService"></property>
+		<property name="excelExportService" ref="excelExportService"></property>
+	</bean>
+	<bean id="resourcesSortController" class="com.wt.uum2.web.ResourcesSortController">
+		<property name="uumService" ref="uumService" />
+	</bean>
+	
+	<bean id="dutyController" class="com.wt.uum2.web.DutyController">
+		<property name="uumService" ref="uumService" />
+		<property name="dutyService" ref="dutyService" />
+		<property name="authService" ref="AuthService"></property>
+	</bean>
+	
+</beans>

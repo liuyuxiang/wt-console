@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="SyncED"
+		table="U2_SyncED" lazy="true">
+
+			<id column="uuid" length="32" name="uuid" type="string">
+			   <generator class="uuid" />
+		    </id>
+           
+			<property column="ldapFactory" name="ldapFactory" length="1000"	not-null="false" type="string" />
+			
+			<property column="ldapUserName" name="ldapUserName" length="1000"	not-null="false" type="string" />
+			
+			<property column="ldapUserPassWord" name="ldapUserPassWord" length="1000" not-null="false" type="string" />
+       
+			<property column="ldapUrl" name="ldapUrl" length="1000"	not-null="false" type="string" />
+			
+			<property column="baseDN" name="baseDN" length="1000"	not-null="false" type="string" />
+			
+			<property column="userDN" name="userDN" length="1000" not-null="false" type="string" />
+         
+			<property column="groupDN" name="groupDN" length="1000"	not-null="false" type="string" />
+			
+			<property column="deptDN" name="deptDN" length="1000"	not-null="false" type="string" />
+			
+			<property column="userKey" name="userKey" length="1000" not-null="false" type="string" />
+         
+			<property column="groupKey" name="groupKey" length="1000"	not-null="false" type="string" />
+			
+			<property column="deptKey" name="deptKey" length="1000"	not-null="false" type="string" />
+			
+			<property column="userObjectClass" name="userObjectClass" length="1000" not-null="false" type="string" />
+
+			<property column="deptObjectClass" name="deptObjectClass" length="1000"	not-null="false" type="string" />
+			
+			<property column="groupObjectClass" name="groupObjectClass" length="1000"	not-null="false" type="string" />
+			
+			<property column="dbDeptRoot" name="dbDeptRoot" length="1000" not-null="false" type="string" />
+
+	</class>
+</hibernate-mapping>

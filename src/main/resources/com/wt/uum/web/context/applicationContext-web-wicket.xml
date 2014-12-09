@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+	<bean id="mainUUMApplication" class="com.wt.uum2.web.wicket.MainUUMApplication" parent="baseUUMApplication"
+		lazy-init="false" />
+	
+	<bean id="baseUUMApplication"
+		class="com.wt.uum2.web.wicket.BaseUUMApplication" abstract="true">
+		<property name="uumService" ref="uumService" />
+		<property name="departmentPathService" ref="departmentPathService" />
+		<property name="eventFactory" ref="eventFactory"></property>
+		<property name="eventListenerHandler" ref="eventListenerHandler"></property>
+		<property name="uumTempDataService" ref="uumTempDataService"></property>
+		<property name="userListService" ref="userListService"></property>
+		<property name="taskListService" ref="taskListService"></property>
+		<property name="setting" ref="setting"></property>
+		<property name="sendMail" ref="sendMail" />
+		<property name="excelExportService" ref="excelExportService"></property>
+		<property name="syncOnOffService" ref="syncOnOffService"></property>
+		<property name="groupService" ref="groupService"></property>
+	</bean>
+
+</beans>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+	function a() {
+		var valueStr = document.getElementById("selectedstr").value;
+		if (window.opener) {
+			window.opener.returnValue = valueStr;
+		} else {
+			window.returnValue = valueStr;
+		}
+		window.close();
+
+	}
+</script>
+</head>
+<body>
+	<div id="wrapper1">
+		<div style="float:right;"><input wicket:id="selectedstr" style="display: none;" /> <input
+			type="button" wicket:id="ok" value="确定" /> <input type="button"
+			wicket:id="cancel" value="取消" />
+</div>
+<div style="clear:both;"></div>
+		<div wicket:id="panel" style="height: 180px;">></div>
+	</div>
+</body>
+</html>

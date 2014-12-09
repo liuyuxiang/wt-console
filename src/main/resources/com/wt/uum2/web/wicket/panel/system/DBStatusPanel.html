@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<wicket:panel>
+			<div style="text-align: center">
+				<table align="center" border="1" cellspacing="2" cellpadding="0">
+					<tr>
+						<td colspan=4><b style="font-size: 16px;">数据库状态</b></td>
+					</tr>
+					<tr>
+						<td width="12%">服务器名</td>
+						<td><span wicket:id="serverName"></span></td>
+						<td width="12%">实例名</td>
+						<td><span wicket:id="instanceName"></span></td>
+					</tr>
+					<tr>
+						<td width="12%">用户</td>
+						<td><span wicket:id="user"></span></td>
+						<td width="12%">权限</td>
+						<td><span wicket:id="roles"></span></td>
+					</tr>
+					<tr>
+						<td width="12%">表空间</td>
+						<td><span wicket:id="tablespace"></span></td>
+						<td width="12%">连接者IP</td>
+						<td><span wicket:id="clientIp"></span></td>
+					</tr>
+					<tr>
+						<td colspan=4><font wicket:id="dbaWarning" color="red"></font></td>
+					</tr>
+				</table>
+			</div>
+			<br /> <br />
+	</wicket:panel>
+</body>
+</html>

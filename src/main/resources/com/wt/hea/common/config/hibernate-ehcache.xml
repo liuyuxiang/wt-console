@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+<diskStore path="java.io.tmpdir" />
+<cache name="com.wt.uum2.domain.User"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="150"
+    timeToLiveSeconds="300"
+    overflowToDisk="true"
+/> 
+<cache name="com.wt.uum2.domain.Department"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="150"
+    timeToLiveSeconds="300"
+    overflowToDisk="true"
+/>
+<cache name="com.wt.uum2.domain.UserDepartment"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    overflowToDisk="true"
+/>
+<cache name="com.wt.uum2.domain.Group"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    overflowToDisk="true"
+/>
+<cache name="com.wt.uum2.domain.UserGroup"
+    maxElementsInMemory="10000"
+    eternal="false"
+    timeToIdleSeconds="300"
+    timeToLiveSeconds="600"
+    overflowToDisk="true"
+/>
+</ehcache>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="TemplatePortletInfo" table="P_TMPL_PORTLETINFO">
+        <id name="tpId" type="string" column="TP_ID" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="pageId" type="string"  column="PAGE_ID" insert="false" update="false"/>
+        <property name="portletId" type="string" column="PORTLET_ID" insert="false" update="false"/>
+        <property name="placeHolderId" type="string" column="PLACEHOLDER_ID"/>
+        <property name="placeHolderName" type="string" column="PLACEHOLDER_NAME"/>
+        <property name="placeHolderType" type="string" column="PLACEHOLDER_TYPE"/>
+        <property name="showName" type="string" column="SHOW_NAME" />
+        <property name="funcId" type="string" column="FUNC_ID" />
+        <property name="funcName" type="string" column="FUNC_NAME" />
+        <property name="funcAction" type="string" column="FUNC_ACTION" />
+        <property name="editAction" type="string" column="EDIT_ACTION"/>
+        <property name="titleUrl" type="string" column="TITLE_URL"/>
+        <property name="portletStatus" type="string" column="PORTLET_STATUS" />
+        <property name="portletType" type="string" column="PORTLET_TYPE" />
+        <property name="htmlCode" type="string" column="HTML_CODE" />
+        <property name="sortNo" type="integer" column="SORT_NO" />
+        <property name="rowNo" type="integer" column="ROW_NO" />
+        <property name="dispSn" type="integer" column="DISP_SN" />
+       
+        <many-to-one name="templatePageInfo" class="TemplatePage" column="PAGE_ID" lazy="false"/>
+        <many-to-one name="portletProperty" class="PortletProperty" column="PORTLET_ID" lazy="false"/>
+    </class>
+</hibernate-mapping>

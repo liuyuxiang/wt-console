@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="LayoutDefinition" table="P_LAYOUT_DEFINITION">
+        <id name="layoutCode" type="string" column="LAYOUT_CODE" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="layoutName" type="string"  column="LAYOUT_NAME" length="256"/>
+        <property name="layoutContent" type="string" column="LAYOUT_CONTENT" length="256"/>
+        <property name="layoutPicPath" type="string" column="LAYOUT_PICPATH" length="256" />
+        <property name="createDate" type="java.util.Date" column="CREATE_DATE" />
+        <property name="modifyDate" type="java.util.Date" column="MODIFY_DATE" />
+       
+    </class>
+</hibernate-mapping>

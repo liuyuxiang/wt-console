@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="PortletProperty" table="P_PORTLET_PROPERTY">
+    	<id name="portletId" column="PORTLET_ID" length="32" type="string">
+    		<generator class="uuid"></generator>
+    	</id>
+        <property name="portletName" type="string"  column="PORTLET_NAME" length="256"/>
+        <property name="funcAction" type="string" column="FUNC_ACTION" length="256"/>
+        <property name="portletType" type="string" column="portlet_type" length="16"/>
+        <property name="editAction" type="string" column="EDIT_ACTION" length="256"/>
+        <property name="titleUrl" type="string" column="TITLE_URL" length="256" />
+        <property name="portletDesc" type="string" column="portlet_desc" length="1024"/>
+
+        <property name="width" type="integer" column="width"/>
+        <property name="height" type="integer" column="height"/>
+        <property name="htmlCode" type="string" column="html_code" length="4000"/>
+        
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<class dynamic-insert="true" dynamic-update="true" name="EventParam"
+		table="U2_EventParam" lazy="true">
+
+		<id column="uuid" length="32" name="uuid" type="string">
+			<generator class="uuid" />
+		</id>
+
+		<many-to-one column="eventuuid" insert="true" update="false"
+			not-null="true" name="event" class="Event">
+		</many-to-one>
+
+		<property name="key" type="string" length="50"
+			not-null="true">
+			<column name="[KEY]"></column>
+		</property>
+
+		<property name="originalValue" column="originalValue" type="string"
+			length="255">
+		</property>
+
+		<property name="value" type="string" length="255">
+			<column name="[VALUE]"></column>
+		</property>
+
+	</class>
+</hibernate-mapping>

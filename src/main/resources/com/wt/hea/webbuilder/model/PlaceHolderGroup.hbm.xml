@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="PlaceHolderGroup" table="P_PLACEHOLDER_GROUP">
+        <id name="pgId" type="string" column="pg_ID" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="placeHolderId" type="string"  column="PLACEHOLDER_ID"/>
+        <property name="groupId" type="string" column="GROUP_ID"/>
+        <property name="tmplId" type="string" column="TMPL_ID" />
+    </class>
+</hibernate-mapping>

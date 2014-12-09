@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ~ Licensed to the Apache Software Foundation (ASF) under one ~ or more 
+	contributor license agreements. See the NOTICE file ~ distributed with this 
+	work for additional information ~ regarding copyright ownership. The ASF 
+	licenses this file ~ to you under the Apache License, Version 2.0 (the ~ 
+	"License"); you may not use this file except in compliance ~ with the License. 
+	You may obtain a copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0 
+	~ ~ Unless required by applicable law or agreed to in writing, ~ software 
+	distributed under the License is distributed on an ~ "AS IS" BASIS, WITHOUT 
+	WARRANTIES OR CONDITIONS OF ANY ~ KIND, either express or implied. See the 
+	License for the ~ specific language governing permissions and limitations 
+	~ under the License. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Sample RDBMS data source that would exist in any application - not 
+		Shiro related. -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="cacheManager" ref="cacheManager" />
+		<!-- Single realm app. If you have multiple realms, use the 'realms' property 
+			instead. -->
+<!-- 		<property name="sessionMode" value="native" /> -->
+		<property name="sessionMode" value="http" />
+		<property name="realm" ref="userRealm" />
+		<property name="realms">
+			<list>
+				<ref bean="deviceRealm"/>
+				<ref bean="userRealm"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+	</bean>
+	
+	<bean id="userRealm" class="com.wt.uum.shiro.authc.UserRealm">
+		<property name="uumService" ref="uumService"></property>
+		<property name="credentialsMatcher" ref="userCredentialsMatcher"></property>
+	</bean>
+	
+	<bean id="deviceRealm" class="com.wt.uum.shiro.authc.DeviceRealm">
+		<property name="deviceService" ref="deviceService"></property>
+		<property name="credentialsMatcher" ref="deviceCredentialsMatcher"></property>
+	</bean>
+	
+	<bean id="userCredentialsMatcher" class="com.wt.uum.shiro.authc.UserCredentialsMatcher"></bean>
+	<bean id="deviceCredentialsMatcher" class="com.wt.uum.shiro.authc.DeviceCredentialsMatcher"></bean>
+
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor" />
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+
+	<bean id="deviceFilter" class="com.wt.uum.shiro.filter.DeviceFilter">
+	</bean>
+	
+	<bean id="lctaSSOFilter" class="com.wt.components.security.shiro.filter.sso.LctaSsoFilter"></bean>
+	
+	<bean id="shiroFilterFactoryBase" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/heaconsole/web/login/adminlogin.jsp" />
+		<property name="successUrl" value="/heaUserAction.hea" />
+		<property name="filterChainDefinitions">
+			<value>
+				/rest/** = deviceFilter,anon
+				/style/** = anon
+				/js/** = anon
+				/index.nsf = anon
+				/login.nsf = anon
+				/heaUserAction.hea = anon
+				/getHeader.jsp = anon
+				/w/updatePassword=anon
+				/w/login = anon
+				/w/wicket/** = anon
+				/** = anon
+				/** = lctaSSOFilter,authc
+			</value>
+		</property>
+	</bean>
+
+</beans>

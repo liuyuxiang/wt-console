@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+
+	<subclass dynamic-insert="true" dynamic-update="true" name="Group"
+		extends="Resource" lazy="true" discriminator-value="1">
+
+		<set name="parents" table="U2_GroupRelationship">
+			<key column="childUUID" />
+			<many-to-many class="Group" column="parentUUID" />
+		</set>
+
+		<join table="U2_Group">
+
+			<key column="uuid" />
+
+			<property column="code" length="500" name="code" type="string" />
+
+			<property column="orderNum" name="order" unique="false"
+				not-null="true" type="long" />
+
+			<property column="name" length="500" name="name" not-null="true"
+				type="string" />
+
+			<property column="hasChildren" name="hasChildren" not-null="true"
+				type="boolean" />
+
+			<property column="groupType" name="groupType" not-null="false"
+				type="string" />
+
+			<property column="appGroupType" name="appGroupType"
+				not-null="false" type="string" />
+
+		</join>
+
+	</subclass>
+</hibernate-mapping>

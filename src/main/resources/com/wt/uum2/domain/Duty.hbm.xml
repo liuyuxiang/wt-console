@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+	<subclass dynamic-insert="true" dynamic-update="true" name="Duty"
+		extends="Resource" lazy="true" discriminator-value="5">
+
+		<join table="U2_Duty">
+			<key column="uuid" />
+			<property column="name" length="255" name="name" not-null="true"
+				type="string" />
+			<property column="id" length="50" name="id" type="string" />
+			<property name="level">
+				<column name="level_" default="0" not-null="true">
+					<comment>duty levle</comment>
+				</column>
+			</property>
+		</join>
+	</subclass>
+</hibernate-mapping>

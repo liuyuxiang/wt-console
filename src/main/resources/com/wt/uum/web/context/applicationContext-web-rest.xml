@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="userRest" class="com.wt.uum2.rest.UserResource"
+		parent="resRest">
+		<property name="uumAppService" ref="uumAppService" />
+	</bean>
+	<bean id="deptRest" class="com.wt.uum2.rest.DepartmentResource"
+		parent="resRest">
+		<property name="departmentPathService" ref="departmentPathService" />
+	</bean>
+	<bean id="groupRest" class="com.wt.uum2.rest.GroupResource"
+		parent="resRest">
+	</bean>
+	<bean id="appRest" class="com.wt.uum2.rest.ApplicationResource"
+		parent="resRest">
+		<property name="uumAppService" ref="uumAppService" />
+	</bean>
+	<bean id="resRest" class="com.wt.uum2.rest.ResResource"
+		abstract="true">
+		<property name="uumService" ref="uumService"></property>
+		<property name="eventListenerHandler" ref="eventListenerHandler">
+		</property>
+		<property name="eventFactory" ref="eventFactory"></property>
+	</bean>
+	<bean class="org.apache.wink.spring.Registrar">
+		<property name="classes">
+			<set value-type="java.lang.Class">
+			</set>
+		</property>
+		<property name="instances">
+			<set>
+				<ref bean="userRest" />
+				<ref bean="deptRest" />
+				<ref bean="groupRest" />
+				<ref bean="appRest" />
+				<ref bean="deviceRest" />
+			</set>
+		</property>
+	</bean>
+
+	<bean id="deviceRest" class="com.wt.uum2.rest.DeviceResource">
+		<property name="userResource" ref="userRest"></property>
+		<property name="deviceService" ref="deviceService"></property>
+	</bean>
+</beans>

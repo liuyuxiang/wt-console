@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<data-sources />
+	<form-beans>
+		<form-bean name="indexForm" type="com.wt.hea.rbac.struts.form.IndexForm" />
+		<form-bean name="systemCodeForm" type="com.wt.hea.rbac.struts.form.SystemCodeForm" />
+	</form-beans>
+	<global-exceptions />
+	<global-forwards>
+		<forward name="message" path="/heaconsole/web/message.jsp"></forward>
+	</global-forwards>
+	<action-mappings>
+		<action path="/heaUserAction" parameter="action">
+			<forward name="adminIndex" path="/heaconsole/web/login/adminIndex.jsp" />
+			<forward name="logoutAdmin" path="/heaconsole/web/login/adminlogin.jsp" />
+			<forward name="testAdmin" path="/heaconsole/web/login/index.jsp" />
+			<!-- 原始的登陆后页面 -->
+			<forward name="louverIndex" path="/heaconsole/web/rbac/louver/index.jsp" />
+
+			<forward name="chooseGroup" path="/heaconsole/web/rbac/group/chooseGroup.jsp" />
+
+			<forward name="systemCodeList" path="/modules/rbac/systemCodeList.jsp" />
+		</action>
+		<action path="/heaDepartmentAction" name="departmentForm" parameter="action" />
+
+		<action path="/heaIndexAction" name="indexForm" parameter="action" scope="request">
+			<forward name="tree_xmlData" path="/heaconsole/web/rbac/index/tree_xmlData.jsp" />
+			<forward name="indexGroupTree" path="/heaconsole/web/rbac/index/indexGroupTree.jsp"></forward>
+			<forward name="updateIndex" path="/heaconsole/web/rbac/index/updateIndex.jsp"></forward>
+		</action>
+
+		<action path="/heaGroupAction" name="indexForm" parameter="action" scope="request">
+			<forward name="tree_xmlData" path="/heaconsole/web/rbac/index/tree_xmlData.jsp" />
+			<forward name="groupIndexTree" path="/heaconsole/web/rbac/group/groupIndexTree.jsp" />
+		</action>
+
+		<action path="/heaAppPageAction" name="indexForm" parameter="action" scope="request">
+			<forward name="listAppDir" path="/modules/rbac/apps/listAppDir.jsp" />
+		</action>
+
+		<action path="/heaSystemCodeAction" name="systemCodeForm" parameter="action" scope="request">
+			<forward name="addsystemcode" path="/modules/rbac/systemCodeList.jsp" />
+			<forward name="systemcodelist" path="/modules/common/systemcode/systemcodelist.jsp" />
+			<forward name="systemcodelist1" path="/heaconsole/web/rbac/systemcode/systemCodeList.jsp" />
+			<forward name="addsystemcode" path="/modules/common/systemcode/systemcodelist.jsp" />
+			<forward name="updatesystemcode" path="/modules/common/systemcode/systemcodelist.jsp" />
+			<forward name="updatesystemcode1" path="/heaconsole/web/rbac/systemcode/systemCodeDetail.jsp" />
+			<forward name="addsystemcode1" path="/heaconsole/web/rbac/systemcode/systemCodeList.jsp" />
+		</action>
+	</action-mappings>
+
+	<controller maxFileSize="20M" locale="true">
+		<set-property property="processorClass" value="org.springframework.web.struts.DelegatingRequestProcessor" />
+	</controller>
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation" value="classpath:com/wt/hea/common/config/applicationContext-action-servlet.xml" />
+	</plug-in>
+</struts-config>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<import resource="applicationContext-config-${nsf.project.id}.xml" />
+	<import resource="applicationContext-event.xml"/>
+	<import resource="applicationContext-ehcache.xml"/>
+	<import resource="applicationContext-dao.xml" />
+	<import resource="applicationContext-service.xml" />
+	<import resource="applicationContext-setting.xml" />
+	<import resource="applicationContext-device.xml" />
+	<import resource="applicationContext-i18n.xml" />
+	<import resource="applicationContext-javamelody.xml" />
+
+</beans>

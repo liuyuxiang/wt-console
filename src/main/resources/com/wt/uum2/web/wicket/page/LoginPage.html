@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>  
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<wicket:head>
+<style>
+input.error {
+	border: 1px solid red;
+}
+</style>
+</wicket:head>
+</head>
+<body style="background:#FFFFFF;">
+<wicket:extend>
+<form method="post" wicket:id="from" >
+<div id="login" >
+
+<table border="0" cellspacing="0" cellpadding="0" class="login_background">
+	<tr height="10%">
+		<td width="100%" valign="bottom" align="center"></td>
+	</tr>
+	<tr height="70%">
+		<td valign="bottom">
+			<TABLE width="100%" align="right" border="0" cellspacing="0" cellpadding="0">
+				<TR>
+					<TD align="right" ><wicket:message key="username">用户名</wicket:message><input type="text" wicket:id="u" value="" /></TD>
+					<TD align="center" ><wicket:message key="password">密码</wicket:message><input type="password" wicket:id="p" value="" /></TD>
+					<TD align="left" >
+						<button wicket:id="login"><wicket:message key="login">登录</wicket:message></button>
+						<button wicket:id="reset"><wicket:message key="reset">重置</wicket:message></button>
+					</TD>
+				</TR>
+			</TABLE>
+		</td>
+	</tr>
+	<tr height="20%">
+		<td align="center">
+			<span wicket:id="usernameFeedback"></span>
+			<span wicket:id="passwordFeedback"></span>
+			<span wicket:id="feedback"></span>
+		</td>
+	</tr>
+</table>
+
+</div>
+</form>
+</wicket:extend>
+</body>
+</html>

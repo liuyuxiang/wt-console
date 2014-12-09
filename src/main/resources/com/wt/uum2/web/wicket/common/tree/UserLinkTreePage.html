@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+	var url = location.search; //获取url中"?"符后的字串
+	if (url.indexOf("?") != -1) {
+		var str = url.substr(1);
+		strs = str.split("&");
+		for (var i = 0; i < strs.length; i++) {
+			if (strs[i].split("=")[0] == "domain") {
+				document.domain = strs[i].split("=")[1];
+			}
+		}
+	}
+	function a() {
+		try {
+		var api = frameElement.api, W = api.opener;
+		var valueStr = document.getElementById("selectedstr").value;
+		 
+		if (window.opener) {
+		window.opener.returnValue = valueStr;
+		W.document.getElementById('returnValue').value = valueStr;
+		} else {
+		window.returnValue = valueStr;
+		W.document.getElementById('returnValue').value = valueStr;
+		}
+		window.close();
+		W.close();
+		}catch(e) {
+		//console.error(e);
+		}
+		 
+		}
+</script>
+</head>
+<body style="overflow: scroll; overflow-x: hidden">
+	<div id="wrapper1">
+		<div style="float: right;">
+			<input wicket:id="selectedstr" style="display: none;" /> <input
+				type="button" wicket:id="ok" value="确定" /> <input type="button"
+				wicket:id="cancel" value="取消" />
+		</div>
+		<div wicket:id="panel"></div>
+	</div>
+</body>
+</html>

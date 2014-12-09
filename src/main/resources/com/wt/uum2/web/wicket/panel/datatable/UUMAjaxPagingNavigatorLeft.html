@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<wicket:panel>
+		<span>共<wicket:message wicket:id="totalPage"></wicket:message>条记录
+		</span>&nbsp;&nbsp;
+	<form wicket:id="rowsPerForm" style="display: inline">
+			<wicket:message key="rowsPer">每页</wicket:message>
+			:<input type="text" wicket:id="rowsPerText" size=1></input>&nbsp;<input
+				type="button" wicket:id="rowsPerButton" value="确定" class="button"></input>
+		</form>
+	&nbsp;&nbsp;
+	<form wicket:id="goForm" style="display: inline">
+			<wicket:message key="go">跳页</wicket:message>
+			：<input type="text" wicket:id="goText" size=1></input>&nbsp;<input
+				type="button" wicket:id="goButton" value="GO" class="button"></input>
+		</form>
+	</wicket:panel>
+</body>
+</html>

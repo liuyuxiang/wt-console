@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="BaseInfo" table="P_BASE_INFO">
+        <id name="topId" type="string" column="TOP_ID" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="siteId" type="string" column="SITE_ID" />
+        <property name="siteName" type="string" column="SITE_NAME"/>
+        <property name="siteNo" type="string" column="SITE_NO"  insert="false" update="false"/>
+        <property name="suspenAddr" type="string" column="SUSPEN_ADDR" />
+        <property name="suspenStatus" type="string" column="SUSPEN_STATUS" />
+        <property name="suspenUrl" type="string" column="SUSPEN_URL" />
+        <property name="topType" type="string" column="TOP_TYPE" />
+        <property name="resCode" type="string" column="RES_CODE" />
+        <property name="suspenPath" type="string" column="SUSPEN_PATH" />
+        <property name="resId" type="string" column="res_id"/>
+        <property name="height" type="integer" column="res_height"/>
+        <property name="width" type="integer" column="res_width"/>
+        <many-to-one name="siteManage" column="SITE_NO" class="com.wt.hea.webbuilder.model.SiteManage"/>
+    </class>
+</hibernate-mapping>

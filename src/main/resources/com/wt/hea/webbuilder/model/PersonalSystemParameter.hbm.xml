@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="PersonalSystemParameter" table="P_SYS_PARAM">
+        <id name="codeId" type="string" column="code_Id" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="codeType" type="string"  column="code_Type"/>
+        <property name="codeValue" type="string" column="code_Value"/>
+        <property name="codeName" type="string" column="code_Name" />
+        <property name="parentCode" type="string" column="p_Code" />
+        <property name="dispSn" type="integer" column="disp_Sn" />
+        <property name="content1" type="string" column="content1" />
+        <property name="content2" type="string" column="content2" />
+        <property name="content3" type="string" column="content3" />
+        <property name="content4" type="string" column="content4" />
+        <property name="content5" type="string" column="content5" /><!--
+        <bag name="subpspList" inverse="true" cascade="all" lazy="false">
+        	<key column="p_Code"/>
+        	<one-to-many class="PersonalSystemParameter"/>
+        </bag>
+        <many-to-one name="parentPersonalSystemParameter" 
+        			class="PersonalSystemParameter" column="p_Code"/>
+    --></class>
+</hibernate-mapping>

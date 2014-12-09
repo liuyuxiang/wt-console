@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.wt.uum2.domain">
+	<subclass dynamic-insert="true" dynamic-update="true" name="TextValue"
+		extends="AttributeValue" lazy="true" discriminator-value="1">
+		
+		<join table="U2_TextValue">
+			<key column="uuid" />			
+			<property column="value" length="500" name="value" not-null="false"
+				type="org.springframework.orm.hibernate3.support.ClobStringType" />
+			
+		</join>
+	</subclass>
+</hibernate-mapping>

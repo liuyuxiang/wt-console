@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wt.hea.webbuilder.model">
+    <class name="SiteManage" table="P_SITE_MANAGE">
+        <id name="siteId" type="string" column="site_Id" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="siteNo" type="string"  column="SITE_NO"/>
+        <property name="siteName" type="string" column="SITE_NAME"/>
+        <property name="parentSiteNo" type="string" column="P_SITE_NO" insert="false" update="false"/>
+        <property name="parentSiteName" type="string" column="P_SITE_NAME" />
+        <property name="dispSn" type="integer" column="DISP_SN" />
+        <property name="siteStatus" type="string"  column="SITE_STATUS"/>
+        <property name="createTime" type="java.util.Date" column="CREATE_TIME"/>
+        <property name="userNo" type="string" column="USER_NO" />
+        <property name="deptNo" type="string" column="DEPT_NO" />
+        <property name="siteAddr" type="string" column="SITE_ADDR"/>
+        <property name="logoPath" type="string" column="LOGO_PATH"/>
+        <property name="copyrightContent" type="string" column="COPYRIGHT_CONTENT"/>
+        <property name="typeCode" type="string" column="TYPE_CODE"/>
+        <property name="navRootId" type="string" column="NAVI_ID"/>
+        <property name="appId" type="string" column="APP_ID"/>
+        
+        <many-to-one name="parentSite" class="com.wt.hea.webbuilder.model.SiteManage" column="P_SITE_NO" fetch="select"/>
+        <set name="subSites" inverse="true" cascade="all" lazy="false">
+        	<key column="P_SITE_NO"/>
+        	<one-to-many class="com.wt.hea.webbuilder.model.SiteManage"/>
+        </set>
+
+		<set name="baseInfos" inverse="true" cascade="all" fetch="select"> 
+			<key  column="site_id"/>
+			<one-to-many class="com.wt.hea.webbuilder.model.BaseInfo"/>
+		</set>
+    </class>
+</hibernate-mapping>

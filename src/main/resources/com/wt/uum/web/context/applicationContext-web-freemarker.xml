@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd" default-lazy-init="true">
+	<bean id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPaths">
+			<list>
+				<value>/WEB-INF/freemarker-${nsf.project.id}/</value>
+				<value>/WEB-INF/freemarker/</value>
+			</list>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+
+		<property name="freemarkerSettings">
+			<props>
+
+				<!-- <prop key="datetime_format">MM/dd/yyyy</prop> -->
+				<prop key="number_format">#</prop>
+
+				<prop key="url_escaping_charset">UTF-8</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".ftl" />
+
+		<!--
+		<property name="requestContextAttribute" value="rc" />
+		 -->
+
+		<property name="contentType" value="text/html; charset=UTF-8" />
+	</bean>
+
+</beans>
